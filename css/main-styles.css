@@ -1,197 +1,197 @@
-*, *:before, *:after {
-  -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box;
- }
 
-html
-{
-	font-size:100%;
+html{
+    font-family: 'Open Sans',sans-serif;
+    background: whitesmoke;
 }
-
-body
-{
-	-webkit-font-smoothing:antialiased;
-	color:#333332;
-	font-family:Lora, serif;
-	font-size:18px;
-	font-weight:400;
-	line-height:1.4;
-	text-rendering:optimizeLegibility;
+a{
+    text-decoration: none;
+    color: black;
 }
-
-.skill-set li:hover
-{
-	background:#3498db;
+hr{
+    background: grey;
 }
-
-h1
-{
-	color:rgba(0,0,0,.75);
+#container{
+    position: relative;
+    display: flex;
 }
-
-.wrapper
-{
-	height:100%;
+#profile{
+    flex: 15%;
+    display: block;
+    position: relative;
+    margin: 5% 2% 0 10%;
+    width: 100%;
+    height: 100%;
 }
-
-.left
-{
-	background-color:rgba(0,0,0,.025);
-	border-right:1px solid rgba(0,0,0,.05);
-	float:right;
-	height:100%;
-	margin-left:-1px;
-	min-width:256px;
-	position:fixed;
-	width:33.33%;
-  
+#info-cards{
+    flex: 55%;
+    display: block;
+    margin-top: 5%;
+    margin-right: 10%;
+    width: 100%;
+    height: 100%;
 }
-
-.right
-{
-	float:right;
-	height:100%;
-	position:relative;
-	width:66.66%;
+#image{
+    position: relative;
+    overflow: hidden;
 }
-
-
-.name-hero
-{
-	background:rgba(0,0,0,.001);
-	bottom:0;
-	height:290px;
-	left:0;
-	margin:auto;
-	position:absolute;
-	right:0;
-	top:0;
-	width:85%;
+#image,#profile-photo{
+    position: relative;
+    width: 80px;
+    height: 80px;
+    border-radius: 10px;
 }
-
-.me-img
-{
-	background:url(https://media-exp1.licdn.com/dms/image/C4E03AQGnLq_IB_mf8Q/profile-displayphoto-shrink_400_400/0/1631022739752?e=1648684800&v=beta&t=eICUjHeH_g9GQEItmEMK1j2gCADwqfjrlccSD_5za58) no-repeat center center ;
-	background-size:100%;
-  background-position:0px;
-	border-radius:100%;
-	height:150px;
-	margin:0 auto;
-	position:relative;
-	width:150px;
+#image > a{
+    position: absolute;
+    top:0;
+    left:0;
+    background: rgba(0,0,0,0.5) !important;
+    height: 100%;
+    width: 100%;
+    display: none;
 }
-
-.name-hero h1
-{
-	font-family:Open Sans, sans-serif;
-	font-size:1.5em;
-	text-align:center;
+#image > a > i{
+    -webkit-text-stroke: 1px #ffffffdd;
+    padding: 40%;
 }
-
-.name-hero h1 em
-{
-	color:rgba(0,0,0,.3);
-	font-style:normal;
-	font-weight:700;
+#image:hover a{
+    display: block;
 }
-
-.name-hero p
-{
-	color:rgba(0,0,0,.75);
-	font-size:.75em;
-	line-height:1.5;
-	margin:0 8px 0 0;
-	text-align:center;
+#name{
+    font-size: 23px !important;
+    line-height: 20px !important;
 }
-
-.name-hero .name-text
-{
-	margin:0 auto;
-	width:85%;
+#about,.card > ul > li{
+    padding: 0 0 0 15px;
+    position: relative;
+    display: inline-block;
+    width: 100%;
 }
-
-.inner
-{
-	margin:0 auto;
-	max-width:975px;
-	padding:3em;
+#about{
+    font-size: 20px !important;
+    padding: 0 !important;
 }
-
-.inner h1
-{
-	font-size:1.75em;
+#name, #about > p{
+    font-weight: bolder;
+    font-family: 'Open Sans', sans-serif;
 }
-
-.inner p
-{
-	color:rgba(0,0,0,.5);
+#email{
+    font-size: 15px !important;
+    font-weight: bold !important;
+    font-family: 'Cutive Mono',monospace;
 }
-
-.inner p em
-{
-	color:rgba(0,0,0,1);
-	font-style:normal;
+#college,#email,#year-graduation,#education,#more-about,#telephone,#fax{
+    color: #555;
+    font-size: 13.5px;
 }
-
-.inner section
-{
-	margin:100px auto;
+strong,span{
+    color: black;
+    font-size: 16px;
 }
-
-ul
-{
-	list-style-type:none;
-	margin-top:-10px;
-	max-width:570px;
-	padding:0;
+#social-links,#about{
+    display: inline-block;
 }
-
-.skill-set li
-{
-	background:rgba(0,0,0,.75);
-	border-radius:5px;
-	color:#FFF;
-	display:inline-block;
-	list-style:none;
-	margin:15px 15px 0 0;
-	padding:10px;
-	text-align:justify;
+#social-links{
+    margin-bottom: 12px;
 }
-
-@media screen and (max-width: 48em) {
-	.right,.left
-	{
-		float:none;
-    position:relative !important;
-		width:100%;
-    min-height:500px;
-	}
-  .handmade {
-  text-align:center !important;
-  margin-top:0px !important;
+#social-links a{
+    margin: 0 10px;
 }
-
-@media screen and (max-width: 75em) {
-    body
-{ font-size:16px;}
+#edit-intro{
+    display: block;
+    color:#097bbf;
+    font-family: 'Nunito', sans-serif;
 }
-
-@media screen and (max-width: 60em) {
-    body
-{ font-size:14px;}
+.fab{
+    font-size: 1.1em;
 }
-.clearfix:after {
-   content: " "; /* Older browser do not support empty content */
-   visibility: hidden;
-   display: block;
-   height: 0;
-   clear: both;
+.fab,.fas{
+    color: whitesmoke;
 }
-.handmade {
-  text-align:right;
-  margin-top:100px;
+#about > a{
+    top: 4px;
+    right: 8px;
 }
-.handmade em {
-  font-family: 'Shadows Into Light', cursive;
-  font-size: 1.25em;
-  margin-left:5px;
+.edit{
+    top: 19px;
+    right: 10px;
+}
+#about > a, .edit{
+    position: absolute;
+    font-size: 15px !important;
+}
+.stroke-transparent {
+ -webkit-text-stroke: 1px #000;
+ -webkit-text-fill-color: transparent;
+}
+.blue{
+    color: #097bbf !important;
+    font-size: 13px;
+}
+.stroke-transparent-blue {
+ -webkit-text-stroke: 1px #097bbf;
+ -webkit-text-fill-color: transparent;
+}
+.card{
+    box-shadow: 0 3px 10px 0 rgba(0,0,0,.1);
+    overflow-x: hidden;
+    margin-bottom: 30px;
+    padding: 15px 30px 30px 30px;
+    background-color: #fff;
+}
+.card > p{
+    color: #0e141e;
+    font-weight: bolder;
+    font-size: 18px;
+    line-height: 2;
+}
+.card > p > i{
+    font-size: 18px;
+}
+.card > a{
+    font-weight: 400;
+    font-size: 15px;
+    margin: 0;
+    margin-left: 25px;
+    padding: 0;
+    border: 0;
+    height: auto;
+    background: transparent;
+    color: #097bbf;
+    outline: none;
+    cursor: pointer;
+}
+.card > ul{
+    list-style-type: none;
+}
+.tags{
+    font-size: 17px;
+    font-weight: bolder;
+}
+.tags ~ a{
+    display: none !important;
+}
+.tags span{
+    font-size: 14px;
+    font-weight: normal;
+    color: #0e141e;
+}
+.tags span span{
+    color: #738f93;
+}
+@media screen and (max-width:1090px){
+    #profile{
+        margin-left: 5%;
+    }
+}
+@media screen and (max-width:850px){
+    #container{
+        display: block;
+    }
+    #profile{
+        width: 90%;
+    }
+    .card{
+        margin: 0 5%;
+        margin-bottom: 30px;
+    }
 }
