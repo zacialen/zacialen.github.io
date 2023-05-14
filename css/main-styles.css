@@ -8617,7 +8617,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   position: absolute;
   left: -32px;
   top: 3px;
-  width: 15px;
+  /*	width: 15px;
   height: 15px;
   /*border: 4px solid #58677c;*/
   background: white;
