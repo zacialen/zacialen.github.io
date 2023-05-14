@@ -8518,11 +8518,11 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .progress {
- /* border-radius: 2px;*/
+	border-radius: 2px;
 }
 
 .theme-progress-bar-dark {
-  background-color: #434E5E;
+  /*background-color: #434E5E;*/
 }
 
 .resume-wrapper {
