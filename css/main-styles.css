@@ -8547,10 +8547,11 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   width: 220px;
 }
 
-.resume-header .name {
+.resume-header .myName {
   font-size: 2.25rem;
   letter-spacing: 0.175rem;
   font-weight: 900;
+  color: #355E3B
 }
 
 .resume-header .title {
@@ -8558,7 +8559,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-header a {
-  color: rgba(255, 255, 255, 0.6);
+  color: #355E3B;
 }
 
 .resume-header a:hover {
