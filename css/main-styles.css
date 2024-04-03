@@ -8699,7 +8699,6 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 .secondary-info {
     padding: 5px 5px 5px 10px;
     position: absolute;
-    bottom: 0px;
     width: 457px;
     background-color: green;
 }
