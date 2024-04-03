@@ -178,6 +178,9 @@ a:not([href]):not([tabindex]):hover, a:not([href]):not([tabindex]):focus {
 a:not([href]):not([tabindex]):focus {
   outline: 0;
 }
+contacts{
+    display:inline;
+}
 
 pre,
 code,
