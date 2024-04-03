@@ -8577,13 +8577,13 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   height: 24px;
   border-radius: 0.125rem;
   background: white;
-  color: #434E5E;
+  color: #355E3B;
 }
 
 .resume-section-title {
   font-size: 1.25rem;
   position: relative;
-  color: #434E5E;
+  color: #355E3B;
 }
 
 .resume-section-title:after {
@@ -8597,7 +8597,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-section-content {
-  color: #58677c;
+  color: #355E3B;
 }
 
 .resume-timeline {
