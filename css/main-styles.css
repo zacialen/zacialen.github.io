@@ -80,7 +80,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
+  margin-bottom: 0.875rem;
 }
 
 abbr[title],
@@ -8617,7 +8617,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   right: 0;
   bottom: 50%;
   width: 100%;
-  height: 1.5px;
+  height: 0.5px;
   background: #355E3B;
 }
 
@@ -8653,11 +8653,11 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     display: inline-block;
     position: absolute;
     left: -32px;
-    top: 1.5px;
+    top: 0.5px;
     width: 15px;
     height: 15px;
     border: 3px solid #355E3B;
-    background: white;
+    background: #355E3B;
     border-radius: 50%;
 }
 
@@ -8694,6 +8694,17 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     font-size: 0.875rem;
     color: #355E3B;
     font-weight: bold;
+}
+
+.resume-certification-name {
+    font-size: 0.875rem;
+    color: #355E3B;
+    font-weight: bold;
+}
+
+.resume-certification-org {
+    font-size: 0.875rem;
+    color: #aab4c3;
 }
 
 .resume-degree {
