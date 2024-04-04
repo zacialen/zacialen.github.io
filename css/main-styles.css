@@ -8604,9 +8604,11 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 
 
 .resume-section-title {
-  font-size: 1.25rem;
-  position: relative;
-  color: #355E3B;
+    font-size: 1.25rem;
+    position: relative;
+    color: #355E3B;
+    font-weight: bold;
+    text-transform:uppercase;
 }
 
 .resume-section-title:after {
@@ -8677,8 +8679,9 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-position-title {
-  font-size: 1.125rem;
-  color: #355E3B;
+    font-size: 0.875rem;
+    color: #355E3B;
+    font-weight: bold;
 }
 
 .resume-timeline-item-desc-heading {
