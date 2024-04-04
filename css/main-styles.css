@@ -8625,6 +8625,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     font-size: 1.25rem;
     position: relative;
     color: #355E3B;
+    padding: 0 3rem 3rem 3rem;
 }
 
 .resume-section-content {
