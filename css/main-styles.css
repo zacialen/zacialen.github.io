@@ -4474,7 +4474,7 @@ input[type="button"].btn-block {
 .badge {
   display: inline-block;
   padding: 0.25em 0.4em;
-  font-size: 75%;
+  font-size: 80%;
   font-weight: 700;
   line-height: 1;
   text-align: center;
@@ -4500,7 +4500,7 @@ input[type="button"].btn-block {
 
 .badge-primary {
   color: #fff;
-  background-color: ##355E3B;
+  background-color: #355E3B;
 }
 
 .badge-primary[href]:hover, .badge-primary[href]:focus {
@@ -4517,7 +4517,7 @@ input[type="button"].btn-block {
 .badge-secondary[href]:hover, .badge-secondary[href]:focus {
   color: #fff;
   text-decoration: none;
-  background-color: ##355E3B;
+  background-color: #355E3B;
 }
 
 .badge-success {
@@ -8703,11 +8703,11 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-degree-org {
-  font-size: 0.875rem;
+    font-size: 0.875rem;
+    color: #aab4c3;
 }
 
 .resume-degree-time {
-  color: #aab4c3;
   font-size: 0.875rem;
 }
 
