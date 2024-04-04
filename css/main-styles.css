@@ -8609,7 +8609,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   color: #355E3B;
 }
 
-.resume-section-title:after {
+/*.resume-section-title:after {
   content: "";
   position: relative;
   display: block;
@@ -8619,7 +8619,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   width: 100%;
   height: 1.5px;
   background: #355E3B;
-}
+}*/
 
 .resume-section-content {
   color: black;
