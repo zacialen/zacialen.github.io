@@ -8586,8 +8586,8 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     content: "";
     position: absolute;
     width: 100%;
-    height: 1px;
-    bottom: 20%;
+    height: 1.5px;
+    bottom: 23%;
     left: 0;
     background: #355E3B;
 }
