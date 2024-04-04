@@ -8625,7 +8625,8 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     font-size: 1.25rem;
     position: relative;
     color: #355E3B;
-    padding: 0 3rem 3rem 3rem;
+    padding: 0 3rem 3rem 0;
+
 }
 
 .resume-section-content {
@@ -8690,9 +8691,9 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-skill-name {
-  font-size: 0.8125rem;
-  color: ##355E3B;
-  font-weight: bold;
+    font-size: 0.875rem;
+    color: #355E3B;
+    font-weight: bold;
 }
 
 .resume-degree {
