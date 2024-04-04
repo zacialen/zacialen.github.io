@@ -8583,6 +8583,9 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-social:before {
+}
+
+.resume-social:after {
   content: "";
   position: absolute;
   left: 0;
@@ -8591,6 +8594,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   height: 1.5px;
   background: #8d9aad;
 }
+
 
 
 .resume-section-title {
