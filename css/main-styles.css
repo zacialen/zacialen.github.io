@@ -8646,7 +8646,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 .resume-timeline:before {
   content: "";
   display: inline-block;
-  width: 0.5px;
+  width: 0.75px;
   height: 100%;
   background: #355E3B;
   left: 6px;
@@ -8663,38 +8663,41 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     top: 0.5px;
     width: 15px;
     height: 15px;
-    border: 1.5px solid #355E3B;
+    border: 0.5px solid #355E3B;
     background: #355E3B;
     border-radius: 50%;
 }
 
+/**heading title-position**/
 .resume-position-title {
     font-size: 1.125rem;
     color: #355E3B;
     font-weight: bold;
 }
 
+/**organization**/
 .resume-company-name {
-  font-size: 0.875rem;
+  font-size: 1rem;
   font-weight: lighter;
   color: black;
 }
 
+/***time***/
+.resume-position-time {
+  font-size: 1rem;
+  color: #aab4c3;
+}
+/**content for that specific position**/
+.resume-timeline-item-desc-heading {
+  font-size: 1rem;
+}
+
+/**EXTRAS**/
 .resume-progress {
   height: 0.6rem;
 }
 
 
-
-.resume-position-time {
-  font-size: 0.875rem;
-  color: #aab4c3;
-}
-
-
-.resume-timeline-item-desc-heading {
-  font-size: 1rem;
-}
 
 .resume-skills-cat {
   font-size: 1rem;
