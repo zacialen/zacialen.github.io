@@ -8611,8 +8611,9 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 
 .resume-section-title:after {
   content: " ";
-  position: absolute;
+  position: relative;
   display: block;
+  left: 0;
   right: 0;
   bottom: 0;
   width: 100%;
