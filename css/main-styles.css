@@ -8697,8 +8697,28 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   height: 0.6rem;
 }
 
+/*****************Left Section: Smaller Box*******************************/
+/**DEGREE**/
+.resume-degree {
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: #355E3B;
+}
 
+/**University Name**/
+.resume-degree-org {
+    font-size: 1rem;
+    font-weight: lighter;
+    color: black;
+}
 
+/**degree time**/
+.resume-degree-time {
+    font-size: 1rem;
+    color: #aab4c3;
+}
+
+/**RESEARCH INTERESTS and SKILL*/
 .resume-skills-cat {
   font-size: 1rem;
   color: #355E3B;
@@ -8721,21 +8741,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     color: #aab4c3;
 }
 
-.resume-degree {
-    font-size: 1.125rem;
-    font-weight: bold;
-    color: #355E3B;
-}
 
-.resume-degree-org {
-    font-size: 1.275rem;
-    font-weight: lighter;
-    color: black;
-}
-
-.resume-degree-time {
-    font-size: 1.275rem;
-    color: #aab4c3;
 }
 
 .resume-award-icon {
