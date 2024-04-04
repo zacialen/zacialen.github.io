@@ -8587,13 +8587,12 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     position: absolute;
     height: 1.5px;
     width: 100%;
-    top: 0;
+    top: 50;
     left: 0;
     background: #355E3B;
 }
 
 .resume-social:after  {
-    content: "";
     height: 1.5px;
     width: 100%;
     position: absolute;
