@@ -1118,8 +1118,8 @@ pre code {
     max-width: 66.6666666667%;
   }
   .col-lg-9 {
-    flex: 0 0 75%;
-    max-width: 75%;
+    flex: 0 0 70%;
+    max-width: 70%;
   }
   .col-lg-10 {
     flex: 0 0 83.3333333333%;
@@ -8626,23 +8626,27 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   background: #355E3B;
 }
 
-/**For Profile section to **/
+/**PROFILE SECTION**/
+/**For Profile section to remove spacing **/
 .resume-section-title-profile {
     padding: 0 3rem 3rem 0;
 }
 
+/**content Paragraph**/
 .resume-section-content {
   color: black;
 }
 
+/*******************BIGGER BOX***************************/
 .resume-timeline {
   padding-left: 2rem;
 }
 
+/********LINE*********/
 .resume-timeline:before {
   content: "";
   display: inline-block;
-  width: 3px;
+  width: 0.5px;
   height: 100%;
   background: #355E3B;
   left: 6px;
@@ -8650,6 +8654,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   position: absolute;
 }
 
+/********CIRCLE*********/
 .resume-timeline-item:before {
     content: "";
     display: inline-block;
@@ -8658,7 +8663,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     top: 0.5px;
     width: 15px;
     height: 15px;
-    border: 3px solid #355E3B;
+    border: 1.5px solid #355E3B;
     background: #355E3B;
     border-radius: 50%;
 }
