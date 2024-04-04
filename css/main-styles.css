@@ -8541,7 +8541,8 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     background: #FFFFFF;
     color: rgba(255, 255, 255, 0.9);
     height: 220px;
-    margin:0;
+    margin: 0;
+    padding: 3rem 3rem 3rem 0;
 }
 
 .resume-header .picture {
@@ -8684,6 +8685,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 .resume-skill-name {
   font-size: 0.8125rem;
   color: #434E5E;
+  font-weight: bold;
 }
 
 .resume-degree {
