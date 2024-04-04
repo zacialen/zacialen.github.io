@@ -8612,6 +8612,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 .resume-section-title:after {
   content: " ";
   position: absolute;
+  display: block;
   right: 0;
   bottom: 0;
   width: 100%;
