@@ -8587,7 +8587,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     position: absolute;
     width: 100%;
     height: 1.5px;
-    top: 25%;
+    bottom: 25%;
     left: 0;
     background: #355E3B;
 }
@@ -8632,7 +8632,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   display: inline-block;
   width: 3px;
   height: 100%;
-  background: #aab4c3;
+  background: #355E3B;
   left: 6px;
   top: 4px;
   position: absolute;
