@@ -8584,7 +8584,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 
 .resume-social:before {
     content: "";
-    position: absolute;
+    position: relative;
     width: 100%;
     top: 50%;
     left: 0;
@@ -8592,7 +8592,6 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-social:after  {
- 
     width: 100%;
     position: absolute;
     bottom: 0;
