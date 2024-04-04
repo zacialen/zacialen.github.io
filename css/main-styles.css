@@ -8724,10 +8724,6 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   color: #fb866a;
 }
 .resume-social {
-    padding: 5px 5px 5px 10px;
-    position: absolute;
-    width: 457px;
-    background-color: green;
     font-size: 0.875rem;
 }
 
