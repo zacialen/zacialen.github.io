@@ -8679,7 +8679,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-position-title {
-    font-size: 0.875rem;
+    font-size: 1.175rem;
     color: #355E3B;
     font-weight: bold;
 }
@@ -8694,7 +8694,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-skill-name {
-    font-size: 0.875rem;
+    font-size: 1.175rem;
     color: #355E3B;
     font-weight: bold;
 }
@@ -8711,19 +8711,19 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-degree {
-    font-size: 0.875rem;
+    font-size: 1.175rem;
     font-weight: bold;
     color: #355E3B;
 }
 
 .resume-degree-org {
-    font-size: 0.875rem;
+    font-size: 1.175rem;
     font-weight: lighter;
     color: black;
 }
 
 .resume-degree-time {
-    font-size: 0.875rem;
+    font-size: 1.175rem;
     color: #aab4c3;
 }
 
