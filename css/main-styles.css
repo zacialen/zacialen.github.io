@@ -8607,7 +8607,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 /**RESUME BODY**/
 /**section headings**/
 .resume-section-title {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
     position: relative;
     color: #355E3B;
     font-weight: bold;
@@ -8660,7 +8660,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     display: inline-block;
     position: absolute;
     left: -32px;
-    top: 0.5px;
+    top: 0.75px;
     width: 15px;
     height: 15px;
     border: 0.5px solid #355E3B;
@@ -8670,14 +8670,14 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 
 /**heading title-position**/
 .resume-position-title {
-    font-size: 1.125rem;
+    font-size: 1rem;
     color: #355E3B;
     font-weight: bold;
 }
 
 /**organization**/
 .resume-company-name {
-  font-size: 1rem;
+  font-size: 0.875rem;
   font-weight: lighter;
   color: black;
 }
@@ -8700,67 +8700,52 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 /*****************Left Section: Smaller Box*******************************/
 /**DEGREE**/
 .resume-degree {
-    font-size: 1.125rem;
+    font-size: 1rem;
     font-weight: bold;
     color: #355E3B;
 }
 
 /**University Name**/
 .resume-degree-org {
-    font-size: 1rem;
+    font-size: 0.875rem;
     font-weight: lighter;
     color: black;
 }
 
 /**degree time**/
 .resume-degree-time {
-    font-size: 1rem;
+    font-size: 0.875rem;
     color: #aab4c3;
 }
 
 /**RESEARCH INTERESTS and SKILL*/
-.resume-skills-cat {
-  font-size: 1rem;
-  color: #355E3B;
-}
 
-.resume-skill-name {
-    font-size: 1.175rem;
-    color: #355E3B;
-    font-weight: bold;
-}
+/**Certifications**/
 
 .resume-certification-name {
-    font-size: 0.875rem;
+    font-size: 1rem;
     color: #355E3B;
     font-weight: bold;
 }
 
 .resume-certification-org {
     font-size: 0.875rem;
-    color: #aab4c3;
+    font-weight: lighter;
+    color: black;
 }
 
-
-}
-
-.resume-award-icon {
-  left: 0;
-  top: 4px;
-  color: #aab4c3;
-}
-
+/***Awards***/
 .resume-award-name {
     font-weight: bold;
     color: #355E3B;
-    font-size: 0.875rem;
+    font-size: 1rem;
 }
 
 .resume-award-desc {
     font-size: 0.875rem;
     color: #aab4c3;
 }
-
+/******************/
 .resume-lang-name {
   color: #355E3B;
 }
