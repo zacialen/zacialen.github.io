@@ -8582,7 +8582,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     color: #355E3B;
 }
 
-.resume-social:after {
+.resume-social:before {
   content: "";
   position: absolute;
   left: 0;
