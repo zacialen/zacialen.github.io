@@ -8528,6 +8528,8 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   /*background-color: ##355E3B;*/
 }
 
+/**WHOLE Body**/
+
 .resume-wrapper {
   padding-top: 30px;
   padding-bottom: 60px;
@@ -8536,7 +8538,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 .resume-wrapper-inner {
   max-width: 1000px;
 }
-
+/**HEADER Banner**/
 .resume-header {
     background: #FFFFFF;
     color: rgba(255, 255, 255, 0.9);
@@ -8602,7 +8604,8 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   background: #355E3B;
 }
 
-
+/**RESUME BODY**/
+/**section headings**/
 .resume-section-title {
     font-size: 1.25rem;
     position: relative;
@@ -8610,7 +8613,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     font-weight: bold;
     text-transform:uppercase;
 }
-
+/**this is the line**/
 .resume-section-title:after {
   content: "";
   position: relative;
@@ -8623,12 +8626,9 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   background: #355E3B;
 }
 
+/**For Profile section to **/
 .resume-section-title-profile {
-    font-size: 1.25rem;
-    position: relative;
-    color: #355E3B;
     padding: 0 3rem 3rem 0;
-
 }
 
 .resume-section-content {
