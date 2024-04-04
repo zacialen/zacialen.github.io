@@ -8572,16 +8572,26 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 .resume-social {
   font-size: 0.875rem;
 }
-
 .resume-social .fa-container {
-  font-size: 1rem;
-  display: inline-block;
-  width: 24px;
-  height: 24px;
-  border-radius: 0.125rem;
-  background: white;
-  color: #355E3B;
+    font-size: 1rem;
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border-radius: 0.125rem;
+    background: white;
+    color: #355E3B;
 }
+
+.resume-social:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  background: #8d9aad;
+}
+
 
 .resume-section-title {
   font-size: 1.25rem;
