@@ -8569,9 +8569,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   color: black;
 }
 
-.resume-social {
-  font-size: 0.875rem;
-}
+
 .resume-social .fa-container {
     font-size: 1rem;
     display: inline-block;
@@ -8724,12 +8722,14 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 .footer .fa-heart {
   color: #fb866a;
 }
-.secondary-info {
+.resume-social {
     padding: 5px 5px 5px 10px;
     position: absolute;
     width: 457px;
     background-color: green;
+    font-size: 0.875rem;
 }
+
 @media (max-width: 767.98px) {
   .resume-wrapper {
     padding-top: 0;
