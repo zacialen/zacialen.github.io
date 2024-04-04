@@ -8585,15 +8585,14 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 .resume-social:before {
     content: "";
     position: absolute;
-    height: 1.5px;
     width: 100%;
-    top: 50;
+    top: 50%;
     left: 0;
     background: #355E3B;
 }
 
 .resume-social:after  {
-    height: 1.5px;
+ 
     width: 100%;
     position: absolute;
     bottom: 0;
