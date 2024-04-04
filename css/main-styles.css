@@ -8645,9 +8645,9 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   top: 1.5px;
   width: 15px;
   height: 15px;
-  border: 4px solid #58677c;*/
+  border: 4px solid #58677c;
   background: white;
-  border-radius: 50%;*/
+  border-radius: 50%;
 }
 
 .resume-progress {
