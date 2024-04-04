@@ -8586,7 +8586,8 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     content: "";
     position: relative;
     width: 100%;
-    top: 50%;
+    height: 1.5px;
+    top: 50;
     left: 0;
     background: #355E3B;
 }
@@ -8594,6 +8595,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 .resume-social:after  {
     width: 100%;
     position: absolute;
+    height: 1.5px;
     bottom: 0;
     left: 0;
     background: #355E3B;
