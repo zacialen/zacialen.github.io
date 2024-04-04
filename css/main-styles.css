@@ -8593,12 +8593,13 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 }
 
 .resume-social:after  {
-    width: 100%;
-    position: absolute;
-    height: 1.5px;
-    bottom: 0;
-    left: 0;
-    background: #355E3B;
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1.5px;
+  background: #355E3B;
 }
 
 
