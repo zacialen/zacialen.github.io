@@ -451,7 +451,7 @@ mark,
 }
 
 .list-inline-item:not(:last-child) {
-  margin-right: 0.875rem;
+  margin-right: 1rem;
 }
 
 .initialism {
@@ -4474,7 +4474,7 @@ input[type="button"].btn-block {
 .badge {
   display: inline-block;
   padding: 0.25em 0.4em;
-  font-size: 80%;
+  font-size: 90%;
   font-weight: 700;
   line-height: 1;
   text-align: center;
@@ -4566,7 +4566,7 @@ input[type="button"].btn-block {
 
 .badge-light {
   color: #212529;
-  background-color: #f8f9fa;
+  background-color: #aab4c3;
 }
 
 .badge-light[href]:hover, .badge-light[href]:focus {
@@ -8668,7 +8668,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     top: 0.75px;
     width: 15px;
     height: 15px;
-    border: 0.5px solid #355E3B;
+    border: 0.75px solid #355E3B;
     background: #355E3B;
     border-radius: 50%;
 }
