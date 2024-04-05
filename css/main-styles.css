@@ -4566,7 +4566,7 @@ input[type="button"].btn-block {
 
 .badge-light {
   color: #212529;
-  background-color: #aab4c3;
+  background-color: #f8f9fa;
 }
 
 .badge-light[href]:hover, .badge-light[href]:focus {
