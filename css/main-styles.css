@@ -8678,6 +8678,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     font-size: 1rem;
     color: #355E3B;
     font-weight: bold;
+    margin-bottom:0;
 }
 
 /**organization**/
@@ -8685,6 +8686,8 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   font-size: 0.875rem;
   font-weight: lighter;
   color: black;
+
+
 }
 
 /***time***/
