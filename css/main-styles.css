@@ -8547,7 +8547,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   max-width: 1000px;
 }
 /**HEADER Banner**/
-header {
+.header {
     background-image: url("images/headerBGND.png");
 }
 .resume-header {
