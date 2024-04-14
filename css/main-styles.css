@@ -8547,13 +8547,14 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
   max-width: 1000px;
 }
 /**HEADER Banner**/
-.header {
+/*.header {
     background-image: url("images/headerBGND.png");
-}
+}*/
 .resume-header {
     background: #FFFFFF;
-    /** background-image: url("images/headerBGND.png");**/
-    color: rgba(255, 255, 255, 0.9);
+    background-image: url("/images/headerBGND.png");
+    background-position: center;
+    background-size: cover;
     height: 220px;
     margin: 0;
     padding: 3rem 3rem 0 3rem;
