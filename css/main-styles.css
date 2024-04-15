@@ -8558,7 +8558,6 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     height: 220px;
     margin: 0;
     padding: 3rem 3rem 0 3rem;
-    margin-bottom: 3px;
 }
 
 
@@ -8577,12 +8576,7 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
 
 .resume-header .myTitle {
   font-size: 1.5rem;
-  color: #355E3B;
-  align-items: center;
-}
-.resume-header .myTitle {
-  font-size: 1.5rem;
-  color: #aab4c3;
+  color: #FFFFFF;
   align-items: center;
 }
 
