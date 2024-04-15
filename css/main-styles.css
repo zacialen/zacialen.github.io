@@ -8558,6 +8558,9 @@ a.theme-btn-on-bg:hover, a.theme-btn-on-bg:focus, a.theme-btn-on-bg:active, .the
     height: 220px;
     margin: 0;
     padding: 3rem 3rem 0 3rem;
+    min-height: 75%;
+}
+
 }
 
 
