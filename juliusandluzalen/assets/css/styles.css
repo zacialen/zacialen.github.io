@@ -20,6 +20,16 @@
   --radius-sm: 10px;
 }
 
+/* Better Saturday font-face (place files in assets/fonts/) */
+@font-face {
+  font-family: "Better Saturday";
+  src: url("../fonts/BetterSaturday.woff2") format("woff2"),
+       url("../fonts/BetterSaturday.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 /* CSS Reset (modern, minimal) */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
@@ -30,7 +40,7 @@ input, button, textarea, select { font: inherit; }
 /* Base */
 html { scroll-behavior: smooth; }
 body {
-  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
   color: var(--text);
   background: var(--bg);
   line-height: 1.7;
@@ -42,7 +52,7 @@ body {
 }
 
 h1, h2, h3 {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
   line-height: 1.2;
   color: #1e1e1e;
 }
@@ -62,7 +72,7 @@ h1.title { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.5px; }
 }
 .site-header .container { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .9rem 0; }
 .logo {
-  font-family: "Playfair Display", Georgia, serif; font-weight: 600; font-size: 1.25rem; text-decoration: none; color: #111;
+  font-family: "Better Saturday", "Great Vibes", cursive; font-weight: 600; font-size: 1.25rem; text-decoration: none; color: #111;
 }
 .logo span { color: var(--primary); }
 
@@ -102,14 +112,14 @@ h1.title { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.5px; }
 /* Save the Date hero variant */
 .hero.save-date { padding-bottom: clamp(3rem, 7vw, 6rem); }
 .hero.save-date .save-title {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Raleway", Helvetica, Arial, sans-serif;
   font-size: clamp(1.2rem, 2.5vw, 1.6rem);
   text-transform: uppercase;
   letter-spacing: 0.25em;
   color: var(--secondary-600);
 }
 .hero.save-date .names {
-  font-family: "Playfair Display", Georgia, serif;
+  font-family: "Better Saturday", "Great Vibes", cursive;
   font-size: clamp(2.2rem, 6vw, 4rem);
   font-weight: 600;
   margin: .3rem 0 .6rem;
@@ -121,6 +131,15 @@ h1.title { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.5px; }
 }
 .hero.save-date .date { font-weight: 600; color: #1f2937; }
 .hero.save-date .location { color: var(--muted); }
+.hero.save-date .hero-image { margin-top: 1rem; }
+.hero.save-date .hero-image img {
+  width: min(920px, 100%);
+  margin: 0 auto;
+  display: block;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
 
 .hero-bg {
   position: absolute; inset: 0; z-index: 1;
@@ -198,6 +217,50 @@ h1.title { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.5px; }
   .timeline.milestones .timeline-card { grid-template-columns: 26px 1fr; }
   .timeline.milestones .timeline-card .milestone-img { grid-column: 2 / -1; aspect-ratio: 16 / 9; }
   .timeline.milestones .timeline-card .content { grid-column: 2 / -1; }
+}
+
+/* Horizontal timeline variant */
+.timeline.horizontal {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(280px, 360px);
+  overflow-x: auto;
+  gap: 1rem;
+  padding-bottom: .6rem;
+  scroll-snap-type: x mandatory;
+}
+.timeline.horizontal::-webkit-scrollbar { height: 8px; }
+.timeline.horizontal::-webkit-scrollbar-thumb { background: #e6e6e6; border-radius: 999px; }
+.timeline.horizontal::before { display: none; }
+.timeline.horizontal .timeline-card {
+  position: relative;
+  grid-template-columns: 1fr; /* stack image then content */
+  scroll-snap-align: start;
+}
+.timeline.horizontal .dot {
+  position: absolute;
+  top: -6px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.timeline.horizontal .milestone-img { min-height: 160px; aspect-ratio: 4 / 3; }
+
+/* Timeline nav controls */
+.timeline-wrap { position: relative; }
+.timeline-nav {
+  position: absolute; top: 40%; transform: translateY(-50%);
+  background: #fff; border: 1px solid var(--border); color: #111; width: 36px; height: 36px;
+  border-radius: 999px; display: grid; place-items: center; box-shadow: var(--shadow);
+  cursor: pointer; transition: transform .15s ease, box-shadow .15s ease, opacity .2s;
+}
+.timeline-nav:hover { transform: translateY(-50%) translateX(0) scale(1.04); box-shadow: 0 10px 20px rgba(0,0,0,.08); }
+.timeline-nav:disabled { opacity: .4; cursor: not-allowed; }
+.timeline-nav.prev { left: -4px; }
+.timeline-nav.next { right: -4px; }
+
+@media (max-width: 700px) {
+  .timeline-nav { top: auto; bottom: -6px; transform: none; }
+  .timeline-nav:hover { transform: none; }
 }
 
 /* Gallery */
