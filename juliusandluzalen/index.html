@@ -22,11 +22,9 @@
       </label>
 
       <nav class="nav">
-        <a href="#about">About</a>
+        <a href="#hero">Home</a>
         <a href="#story">Our Story</a>
-        <a href="#gallery">Gallery</a>
-        <a href="#details">Details</a>
-        <a href="#contact">Contact</a>
+        <a href="#wedding">Wedding</a>
       </nav>
     </div>
   </header>
@@ -37,8 +35,9 @@
       <div class="container">
         <p class="eyebrow">We said yes!</p>
         <h1 class="title">Ana & Marcos</h1>
+        <p class="subtitle">Saturday, September 6, 2025 • The Garden House</p>
         <p class="subtitle">Two hearts, one story. Join us as we celebrate love.</p>
-        <a href="#details" class="btn primary">Event Details</a>
+        <a href="#contact" class="btn primary">RSVP</a>
       </div>
       <div class="hero-bg" aria-hidden="true"></div>
     </section>
@@ -98,6 +97,54 @@
       </div>
     </section>
 
+    <!-- Wedding (anchor/intro) -->
+    <section id="wedding" class="section">
+      <div class="container">
+        <h2>Wedding</h2>
+        <p class="subtitle">Saturday, September 6, 2025 • The Garden House • New York, NY</p>
+        <p>Find everything you need to celebrate with us — the schedule, venue details, and registry.</p>
+        <div style="margin-top:.6rem; display:flex; flex-wrap:wrap; gap:.6rem;">
+          <a class="btn secondary" href="#schedule">View Schedule</a>
+          <a class="btn" href="#venue">Venue</a>
+          <a class="btn" href="#registry">Registry</a>
+          <a class="btn primary" href="#contact">RSVP</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Schedule -->
+    <section id="schedule" class="schedule section">
+      <div class="container">
+        <h2>Schedule</h2>
+        <div class="schedule-cards">
+          <div class="schedule-item">
+            <h3>Ceremony</h3>
+            <p class="time">4:00 PM</p>
+            <p class="muted">Garden Lawn</p>
+          </div>
+          <div class="schedule-item">
+            <h3>Cocktail Hour</h3>
+            <p class="time">5:00 PM</p>
+            <p class="muted">Courtyard</p>
+          </div>
+          <div class="schedule-item">
+            <h3>Reception</h3>
+            <p class="time">6:00 – 10:00 PM</p>
+            <p class="muted">The Garden House</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP band -->
+    <section id="rsvp" class="rsvp-band section alt">
+      <div class="container band">
+        <h2>We’d love to celebrate with you</h2>
+        <p class="subtitle">Please RSVP by August 1, 2025</p>
+        <a href="#contact" class="btn primary">RSVP Now</a>
+      </div>
+    </section>
+
     <!-- Gallery -->
     <section id="gallery" class="gallery section">
       <div class="container">
@@ -114,29 +161,35 @@
       </div>
     </section>
 
-    <!-- Details -->
-    <section id="details" class="details section alt">
+    <!-- Venue -->
+    <section id="venue" class="venue section alt">
       <div class="container grid-two">
         <div>
-          <h2>Details</h2>
-          <p>
-            We're excited to celebrate with you. Here are a few details to help you plan:
-          </p>
-          <ul class="list">
-            <li><strong>Date:</strong> Saturday, September 6, 2025</li>
-            <li><strong>Time:</strong> 4:00 PM – 10:00 PM</li>
-            <li><strong>Location:</strong> The Garden House, 123 Greenway Ave</li>
-            <li><strong>Dress Code:</strong> Garden party chic</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Helpful Info</h3>
+          <h2>Venue</h2>
+          <p>The Garden House</p>
+          <p>123 Greenway Ave, New York, NY</p>
           <ul class="list">
             <li>Parking available on-site</li>
             <li>Outdoor ceremony — bring a light layer</li>
-            <li>Kids welcome</li>
+            <li>Garden party chic attire</li>
           </ul>
-          <a href="#contact" class="btn">RSVP / Contact Us</a>
+        </div>
+        <div class="card map-embed">
+          <!-- Replace src with your Google Maps embed link -->
+          <iframe title="Venue Map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.835434509384!2d144.9537353153169!3d-37.816279742013796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzfCsDQ5JzAwLjYiUyAxNDTCsDU3JzE0LjQiRQ!5e0!3m2!1sen!2sus!4v1610000000000" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- Registry -->
+    <section id="registry" class="registry section">
+      <div class="container">
+        <h2>Registry</h2>
+        <p class="subtitle">Your presence is the greatest gift, but if you'd like to contribute, we're registered at:</p>
+        <div class="registry-logos">
+          <div class="logo-card">Amazon</div>
+          <div class="logo-card">Target</div>
+          <div class="logo-card">IKEA</div>
         </div>
       </div>
     </section>
