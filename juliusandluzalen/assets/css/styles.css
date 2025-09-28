@@ -133,7 +133,7 @@ h1.title { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.5px; }
 .hero.save-date .location { color: var(--muted); }
 .hero.save-date .hero-image { margin-top: 1rem; }
 .hero.save-date .hero-image img {
-  width: min(920px, 100%);
+  width: min(640px, 100%);
   margin: 0 auto;
   display: block;
   border-radius: var(--radius);
@@ -244,6 +244,39 @@ h1.title { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.5px; }
   transform: translateX(-50%);
 }
 .timeline.horizontal .milestone-img { min-height: 160px; aspect-ratio: 4 / 3; }
+
+/* Classic vertical timeline (center line, alternating) */
+.timeline.classic { position: relative; }
+.timeline.classic::before {
+  content: ""; position: absolute; top: 0; bottom: 0; left: 50%; width: 2px;
+  background: rgba(123,191,158,0.35);
+}
+.timeline.classic .timeline-item {
+  position: relative;
+  display: grid; grid-template-columns: 1fr 1fr; column-gap: 2rem;
+  margin: 1.2rem 0 1.8rem;
+}
+.timeline.classic .dot {
+  position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
+  width: 14px; height: 14px; background: var(--primary); border-radius: 50%;
+  box-shadow: 0 0 0 4px rgba(123,191,158,0.25);
+}
+.timeline.classic .milestone-img { aspect-ratio: 4 / 3; }
+.timeline.classic .timeline-card .content { background: #fff; border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); padding: .9rem; }
+
+/* Place odd items on the left, even on the right */
+.timeline.classic .timeline-item:nth-child(odd) .milestone-img,
+.timeline.classic .timeline-item:nth-child(odd) .content { grid-column: 1; }
+.timeline.classic .timeline-item:nth-child(even) .milestone-img,
+.timeline.classic .timeline-item:nth-child(even) .content { grid-column: 2; }
+
+@media (max-width: 800px) {
+  .timeline.classic::before { left: 12px; }
+  .timeline.classic .dot { left: 12px; transform: none; }
+  .timeline.classic .timeline-item { grid-template-columns: 1fr; padding-left: 26px; }
+  .timeline.classic .timeline-item .milestone-img,
+  .timeline.classic .timeline-item .content { grid-column: 1; }
+}
 
 /* Timeline nav controls */
 .timeline-wrap { position: relative; }
