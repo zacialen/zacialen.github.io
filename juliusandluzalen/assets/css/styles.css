@@ -228,18 +228,30 @@ h1.title { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.5px; }
   gap: 1rem;
   padding-bottom: .6rem;
   scroll-snap-type: x mandatory;
+  position: relative; /* allow drawing a connecting line */
 }
 .timeline.horizontal::-webkit-scrollbar { height: 8px; }
 .timeline.horizontal::-webkit-scrollbar-thumb { background: #e6e6e6; border-radius: 999px; }
-.timeline.horizontal::before { display: none; }
+/* Draw a horizontal connecting line across the timeline */
+.timeline.horizontal::before {
+  content: "";
+  position: absolute;
+  top: 110px; /* vertically align through middle of image (220px / 2) */
+  left: 0;
+  height: 2px;
+  width: 9999px; /* extend well beyond viewport to cover scrollable area */
+  background: rgba(123,191,158,0.35);
+  z-index: 0;
+}
 .timeline.horizontal .timeline-card {
   position: relative;
   grid-template-columns: 1fr; /* stack image then content */
   scroll-snap-align: start;
+  z-index: 1; /* keep cards above the connecting line */
 }
 .timeline.horizontal .dot {
   position: absolute;
-  top: -6px;
+  top: calc(110px - 7px); /* center the 14px dot on the 2px line */
   left: 50%;
   transform: translateX(-50%);
 }
