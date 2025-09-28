@@ -99,6 +99,29 @@ h1.title { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.5px; }
 .hero .subtitle { margin: 0 auto 1.2rem; }
 .hero .btn { margin-top: .6rem; }
 
+/* Save the Date hero variant */
+.hero.save-date { padding-bottom: clamp(3rem, 7vw, 6rem); }
+.hero.save-date .save-title {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--secondary-600);
+}
+.hero.save-date .names {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  font-weight: 600;
+  margin: .3rem 0 .6rem;
+}
+.hero.save-date .names span { color: var(--primary); }
+.hero.save-date .divider {
+  width: 120px; height: 1px; background: linear-gradient(90deg, var(--secondary) 0%, var(--primary) 100%);
+  margin: 0.4rem auto 0.8rem; border-radius: 2px;
+}
+.hero.save-date .date { font-weight: 600; color: #1f2937; }
+.hero.save-date .location { color: var(--muted); }
+
 .hero-bg {
   position: absolute; inset: 0; z-index: 1;
   background:
@@ -141,6 +164,41 @@ h1.title { font-size: clamp(2.4rem, 6vw, 4rem); letter-spacing: 0.5px; }
 .timeline .dot { width: 14px; height: 14px; background: var(--primary); border-radius: 50%; margin-top: .5rem; box-shadow: 0 0 0 4px rgba(123,191,158,0.25); }
 .timeline .content h3 { margin-bottom: .2rem; font-size: 1.05rem; }
 .timeline .content p { color: var(--muted); }
+
+/* Milestone timeline with images */
+.timeline.milestones .timeline-card { 
+  display: grid; 
+  grid-template-columns: 26px 160px 1fr; 
+  gap: .9rem; 
+  align-items: start; 
+}
+.timeline .milestone-img { 
+  border-radius: var(--radius-sm); 
+  overflow: hidden; 
+  border: 1px solid var(--border); 
+  background: #f9fafb; 
+  min-height: 110px; 
+}
+.timeline .milestone-img img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: cover; 
+  display: block; 
+}
+.timeline.milestones .timeline-card .content { 
+  background: #fff; 
+  border: 1px solid var(--border); 
+  border-radius: var(--radius); 
+  box-shadow: var(--shadow); 
+  padding: .9rem; 
+}
+.timeline.milestones .timeline-card .content h3 { margin-bottom: .25rem; font-size: 1.12rem; }
+
+@media (max-width: 700px) {
+  .timeline.milestones .timeline-card { grid-template-columns: 26px 1fr; }
+  .timeline.milestones .timeline-card .milestone-img { grid-column: 2 / -1; aspect-ratio: 16 / 9; }
+  .timeline.milestones .timeline-card .content { grid-column: 2 / -1; }
+}
 
 /* Gallery */
 .grid-gallery {
