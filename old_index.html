@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luzalen Marcos - PhD Candidate</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/al-folio-style.css">
+    <base target="_blank">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="#" class="header-title hidden-name"><strong>Luzalen</strong> Marcos</a>
+        <nav class="header-nav">
+            <a href="#about" class="active">About</a>
+            <a href="research.html">Research</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="cv.html">CV</a>
+        </nav>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="progress-bar"></div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Main Container -->
+    <div class="site-container">
+        
+        <!-- Main Content -->
+        <main class="main-content-full">
+            <!-- About Section -->
+            <section id="about" class="content-section">
+                <div class="about-layout">
+                    <div class="about-content">
+                        <h2 class="section-title">
+                            <a href="#about"><strong>Luzalen</strong> Marcos</a><br>
+                            <span class="subheading-inline">PhD candidate in Electrical and Computer Engineering</span>
+                        </h2>
+                        <p>PhD candidate in Electrical and Computer Engineering at Toronto Metropolitan University, combining deep AI and NLP expertise with a genuine commitment to technology that serves people. Experienced building AI-powered solutions in Python. Proven ability to communicate complex AI concepts to non-technical audiences through published research, award-winning presentations, and university teaching.</p>
+                        <p><span class="label-purple">Research interests:</span> AI/ML, NLP, Computer Vision, HCI, Healthcare Technology, Sustainability</p>
+                        <p><span class="label-purple">Contact:</span> <a href="mailto:lmarcos@torontomu.ca">lmarcos@torontomu.ca</a></p>
+                    </div>
+                    <div class="about-image">
+                        <img src="https://via.placeholder.com/160x160/ffffff/cccccc?text=LM" alt="Luzalen Marcos" class="profile-img">
+                    </div>
+                </div>
+            </section>
+
+            <!-- News Section -->
+            <section id="news" class="content-section">
+                <h2 class="section-title">
+                    <a href="#news">News</a>
+                </h2>
+                <div class="news-list">
+                    <div class="news-item">
+                        <strong>December 2023</strong> - Presented Masters Thesis at World Sustainability Forum 2023 on green roof detection through satellite imagery
+                    </div>
+                    <div class="news-item">
+                        <strong>May 2021</strong> - Won 2nd place in Sustainability Design Challenge 2021 for innovative urban sustainability solutions
+                    </div>
+                    <div class="news-item">
+                        <strong>2021</strong> - Achieved Top 3 placement in Healthcare UX Design Jam 2021 for patient experience solutions
+                    </div>
+                </div>
+            </section>
+
+            <!-- Publications Section -->
+            <section id="publications" class="content-section">
+                <h2 class="section-title">
+                    <a href="#publications">Selected publications</a>
+                </h2>
+                
+                <div class="publications-list">
+                    <div class="publication-item">
+                        <strong>Emotion Classification Through Speech Data Analysis</strong>
+                        <br>
+                        <em>WSC '23: Proceedings of the Winter Simulation Conference | ACM</em>, 2023
+                    </div>
+                    <div class="publication-item">
+                        <strong>Addressing the Water–Energy–Food Nexus through Enhanced Green Roof Performance</strong>
+                        <br>
+                        <em>Climate Change Mitigation and Urban Sustainable Development Special Issue of MDPI Sustainable Urban and Rural Development</em>, 2021
+                    </div>
+                    <div class="publication-item">
+                        <strong>Light Spectra Optimization in Indoor Plant Growth for Internet of Things</strong>
+                        <br>
+                        <em>IEEE International IOT, Electronics and Mechatronics Conference (IEMTRONICS)</em>, 2020
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function toggleMobileMenu() {
+            mobileMenuOverlay.classList.toggle('active');
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+
+        // Scroll progress indicator
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            const progressBar = document.querySelector('.progress-bar');
+            
+            if (progressBar) {
+                progressBar.style.width = scrollPercent + '%';
+            }
+        }
+
+        window.addEventListener('scroll', updateProgressBar);
+        updateProgressBar(); // Initial call
+    </script>
+</body>
+</html>

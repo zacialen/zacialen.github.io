@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Research - Luzalen Marcos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/al-folio-style.css">
+    <base target="_blank">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="header-title"><strong>Luzalen</strong> Marcos</a>
+        <nav class="header-nav">
+            <a href="index.html">About</a>
+            <a href="#" class="active">Research</a>
+            <a href="teaching.html">Teaching</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="cv.html">CV</a>
+        </nav>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="progress-bar"></div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Main Container -->
+    <div class="site-container">
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <section class="content-section">
+                
+                    <!-- Publications Section -->
+                    <div class="publications-section">
+                        <h2 class="section-title">
+                            <a href="#">Publications</a>
+                        </h2>
+                        
+                        <div class="publication-item" style="margin-top: 1rem;">
+                            <strong>Emotion Classification Through Speech Data Analysis</strong>
+                            <br>
+                            <em>WSC '23: Proceedings of the Winter Simulation Conference | ACM</em>, 2023
+                        </div>
+                        
+                        <div class="publication-item">
+                            <strong>Addressing the Water–Energy–Food Nexus through Enhanced Green Roof Performance</strong>
+                            <br>
+                            <em>Climate Change Mitigation and Urban Sustainable Development Special Issue of MDPI Sustainable Urban and Rural Development</em>, 2021
+                        </div>
+                        
+                        <div class="publication-item">
+                            <strong>Light Spectra Optimization in Indoor Plant Growth for Internet of Things</strong>
+                            <br>
+                            <em>IEEE International IOT, Electronics and Mechatronics Conference (IEMTRONICS)</em>, 2020
+                        </div>
+                    </div>
+
+                    <!-- Presentations Section -->
+                    <div class="presentations-section" style="margin-top: 2.5rem;">
+                        <h2 class="section-title">
+                            <a href="#">Presentations</a>
+                        </h2>
+                        
+                        <div class="presentation-item" style="border-bottom: 1px solid #ddd; padding-bottom: 0.5rem; margin-top: 1rem;">
+                            <strong>Green Roof Detection Through Satellite Imagery using Faster R-CNN</strong>
+                            <br>
+                            <em>The 10th World Sustainability Forum | Toronto Hub – Green Cities</em>, <time>2023</time>
+                        </div>
+                        
+                        <div class="presentation-item">
+                            <strong>Human-Computer Interaction: Design Process and Ideation</strong>
+                            <br>
+                            <em>Guest Speaker for Human-Computer Interaction</em>, <time>2022, 2023</time>
+                        </div>
+                    </div>
+
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function toggleMobileMenu() {
+            mobileMenuOverlay.classList.toggle('active');
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+
+        // Scroll progress indicator
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            const progressBar = document.querySelector('.progress-bar');
+            
+            if (progressBar) {
+                progressBar.style.width = scrollPercent + '%';
+            }
+        }
+
+        window.addEventListener('scroll', updateProgressBar);
+        updateProgressBar(); // Initial call
+    </script>
+</body>
+</html>
