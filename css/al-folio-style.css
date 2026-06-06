@@ -1016,24 +1016,28 @@ em, i {
   color: var(--global-font-color);
   font-weight: 500;
   margin-bottom: 0.25rem;
+  font-size: 12px;
 }
 
 .cv-item .date {
   color: var(--global-font-color-secondary);
   font-style: italic;
   margin-bottom: 0.5rem;
+  font-size: 12px;
 }
 
 .cv-item .description {
   color: var(--global-font-color);
   margin-bottom: 0.5rem;
   line-height: 1.6;
+  font-size: 12px;
 }
 
 .cv-item p {
   color: var(--global-font-color);
   margin-bottom: 0.5rem;
   line-height: 1.6;
+  font-size: 12px;
 }
 
 .cv-item ul {
@@ -1045,10 +1049,11 @@ em, i {
 .cv-item li {
   margin-bottom: 0.5rem;
   line-height: 1.6;
+  font-size: 12px;
 }
 
 .course-details p {
-  font-size: 1rem;
+  font-size: 12px;
   color: var(--global-font-color-secondary);
   line-height: 1.6;
   margin: 0;
@@ -1086,11 +1091,10 @@ em, i {
 }
 
 .cv-contact h3 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: var(--global-font-color);
-  margin-bottom: 1.5rem;
-  border-bottom: 2px solid var(--global-accent-color);
+  font-size: 14px;
+  font-weight: normal !important;
+  color: var(--global-accent-color);
+  margin-bottom: 0.75rem;
   padding-bottom: 0.5rem;
   text-align: left;
 }
@@ -1108,6 +1112,7 @@ em, i {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  font-size: 12px;
 }
 
 .contact-details i {
