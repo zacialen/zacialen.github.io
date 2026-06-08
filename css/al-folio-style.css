@@ -790,6 +790,16 @@ em, i {
   transform: scale(1.05);
 }
 
+.resilience-project .portfolio-image {
+  background: #f8f5ff;
+  border: 1px solid #e5e0f2;
+}
+
+.resilience-project .portfolio-image img {
+  object-fit: contain;
+  padding: 1rem;
+}
+
 .portfolio-links {
   display: flex;
   gap: 0.5rem;
