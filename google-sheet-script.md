@@ -132,24 +132,6 @@ function submitRecording(e) {
       }
     });
 
-    // Send email notification to you
-    const recipient = Session.getActiveUser().getEmail();
-    const subject = 'New Ibanag Recording Submission';
-    const body = `
-New recording submission received:
-
-Variant: ${variant}
-Recording Type: ${recordingType}
-Topic: ${topic}
-Text IDs: ${textIds}
-Date Submitted: ${formattedDate}
-
-Please review the recording and update the status in the Google Sheet to "Done" if approved.
-  `;
-
-    MailApp.sendEmail(recipient, subject, body);
-    Logger.log('Email sent to: ' + recipient);
-
     return ContentService.createTextOutput(JSON.stringify({
       success: true,
       message: 'Recording submitted successfully'

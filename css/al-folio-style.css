@@ -182,7 +182,16 @@ em, i {
   border-radius: 4px;
   padding: 0.5rem 0;
   z-index: 1001;
-  margin-top: 5px;
+}
+
+.header-nav .dropdown-content::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  background: transparent;
 }
 
 .header-nav .dropdown:hover .dropdown-content {
