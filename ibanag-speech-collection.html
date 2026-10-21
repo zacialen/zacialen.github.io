@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibanag Speech Collection - Luzalen Marcos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="css/al-folio-style.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <a href="index.html" class="header-title"><strong style="color: var(--global-accent-color);">Luzalen</strong> <span style="color: black;">Marcos</span></a>
+        <nav class="header-nav">
+            <a href="index.html">About</a>
+            <div class="dropdown">
+                <a href="research.html" class="active">Research</a>
+                <div class="dropdown-content">
+                    <a href="ibanag-speech-collection.html">Ibanag Speech Data Collection</a>
+                </div>
+            </div>
+            <a href="teaching.html">Teaching</a>
+            <a href="portfolio.html">Portfolio</a>
+           <!--  <a href="cv.html">CV</a>-->
+        </nav>
+        <button class="mobile-menu-toggle" id="mobileMenuToggle">
+            <i class="fas fa-bars"></i>
+        </button>
+        <div class="progress-bar"></div>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay"></div>
+
+    <!-- Main Container -->
+    <div class="site-container">
+        <!-- Main Content -->
+        <main class="main-content">
+            <div class="content-wrapper">
+                <section class="content-section">
+                
+                    <!-- Page Title -->
+                    <div class="ibanag-form-section">
+                        <h2 class="section-title">
+                            <a href="#">Ibanag Speech Data Collection</a>
+                        </h2>
+                        
+                        <p style="margin-bottom: 2rem;">
+                            Thank you for your interest in contributing to the Ibanag speech data collection project. Your contribution will help preserve the Ibanag language and enable the development of AI-powered tools for the Ibanag-speaking community.
+                        </p>
+
+                        <!-- Ibanag Variant Form -->
+                        <div class="form-container" style="background-color: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Step 1: Ibanag Variant Selection</h3>
+                            <p style="margin-bottom: 1rem; color: #666;">To your knowledge, what variant of Ibanag do you speak?</p>
+                            
+                            <div>
+                                <div style="margin-bottom: 1rem;">
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                                        <input type="radio" name="ibanag_variant" value="abulug" style="margin-right: 0.5rem;">
+                                        Abulug
+                                    </label>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                                        <input type="radio" name="ibanag_variant" value="aparri" style="margin-right: 0.5rem;">
+                                        Aparri
+                                    </label>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                                        <input type="radio" name="ibanag_variant" value="isabela" style="margin-right: 0.5rem;">
+                                        Isabela
+                                    </label>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                                        <input type="radio" name="ibanag_variant" value="tuguegarao" style="margin-right: 0.5rem;">
+                                        Tuguegarao
+                                    </label>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                                        <input type="radio" name="ibanag_variant" value="not_sure" style="margin-right: 0.5rem;">
+                                        I am not sure
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recording Options Form -->
+                        <div class="form-container" id="recordingOptions" style="background-color: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Step 2: Recording Option</h3>
+                            <p style="margin-bottom: 1rem; color: #666;">How would you like to contribute?</p>
+                            
+                            <div>
+                                <div style="margin-bottom: 1rem;">
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                                        <input type="radio" name="recording_option" value="read" style="margin-right: 0.5rem;">
+                                        I can read Ibanag (I will read provided text)
+                                    </label>
+                                    <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">
+                                        <input type="radio" name="recording_option" value="speak" style="margin-right: 0.5rem;">
+                                        I would like to record myself speaking about a random topic
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Read Ibanag Section -->
+                        <div class="form-container" id="readIbanagSection" style="background-color: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; display: none;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Step 3: Read Ibanag Text</h3>
+                            <p style="margin-bottom: 1rem; color: #666;">Please read the following 10 lines in Ibanag and record your voice:</p>
+                            
+                            <div id="loadingTexts" style="text-align: center; padding: 2rem; color: #666;">
+                                <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+                                <p>Loading texts...</p>
+                            </div>
+                            
+                            <div id="textsContainer" style="background-color: white; padding: 1.5rem; border-radius: 4px; margin-bottom: 1.5rem; border-left: 4px solid var(--global-accent-color); display: none;">
+                                <ol id="textsList" style="margin-left: 1.5rem; line-height: 1.8;">
+                                </ol>
+                            </div>
+                            
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Record your voice reading the text above:</label>
+                                <input type="file" id="audio_file_read" accept="audio/*" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                        </div>
+
+                        <!-- Speak Random Topic Section -->
+                        <div class="form-container" id="speakTopicSection" style="background-color: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; display: none;">
+                            <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Step 3: Speak About a Random Topic</h3>
+                            <p style="margin-bottom: 1rem; color: #666;">Please record yourself speaking in Ibanag about any topic of your choice (1-3 minutes recommended).</p>
+                            
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Topic (optional):</label>
+                                <input type="text" id="topic" placeholder="What are you speaking about?" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                            <div style="margin-bottom: 1rem;">
+                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Record your voice:</label>
+                                <input type="file" id="audio_file_speak" accept="audio/*" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="form-container" id="submitSection" style="background-color: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; display: none;">
+                            <button id="submitBtn" style="background-color: var(--global-accent-color); color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer; font-size: 1rem;">
+                                Submit
+                            </button>
+                        </div>
+
+                    </div>
+
+                </section>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+
+        function toggleMobileMenu() {
+            mobileMenuOverlay.classList.toggle('active');
+        }
+
+        mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+        mobileMenuOverlay.addEventListener('click', toggleMobileMenu);
+
+        // Scroll progress indicator
+        function updateProgressBar() {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            const progressBar = document.querySelector('.progress-bar');
+
+            if (progressBar) {
+                progressBar.style.width = scrollPercent + '%';
+            }
+        }
+
+        window.addEventListener('scroll', updateProgressBar);
+        updateProgressBar();
+
+        // Google Apps Script URL with CORS proxy
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyIekOtB7MvXmfIScs-9gmjvB6DgY-uiE55BfyTqhXOIv5MXSAMEzUE48bUugJYgapm/exec';
+        const CORS_PROXY = 'https://corsproxy.io/?';
+
+        // Form logic
+        let selectedVariant = '';
+        let selectedOption = '';
+        let selectedTextIds = [];
+
+        // Fetch texts from Google Sheet
+        async function fetchTexts() {
+            try {
+                const response = await fetch(CORS_PROXY + encodeURIComponent(`${SCRIPT_URL}?action=getTexts`));
+                const data = await response.json();
+
+                if (data.success && data.texts) {
+                    const textsList = document.getElementById('textsList');
+                    textsList.innerHTML = '';
+
+                    data.texts.forEach((item, index) => {
+                        const li = document.createElement('li');
+                        li.textContent = item.text;
+                        textsList.appendChild(li);
+                        selectedTextIds.push(item.id);
+                    });
+
+                    document.getElementById('loadingTexts').style.display = 'none';
+                    document.getElementById('textsContainer').style.display = 'block';
+                } else {
+                    document.getElementById('loadingTexts').innerHTML = '<p>Error loading texts. Please try again later.</p>';
+                }
+            } catch (error) {
+                console.error('Error fetching texts:', error);
+                document.getElementById('loadingTexts').innerHTML = '<p>Error loading texts. Please try again later.</p>';
+            }
+        }
+
+        // Show/hide recording sections based on selection
+        document.querySelectorAll('input[name="recording_option"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                selectedOption = this.value;
+
+                // Hide both sections first
+                document.getElementById('readIbanagSection').style.display = 'none';
+                document.getElementById('speakTopicSection').style.display = 'none';
+                document.getElementById('submitSection').style.display = 'none';
+
+                // Show appropriate section
+                if (selectedOption === 'read') {
+                    document.getElementById('readIbanagSection').style.display = 'block';
+                    document.getElementById('submitSection').style.display = 'block';
+                    // Reset and fetch texts
+                    selectedTextIds = [];
+                    document.getElementById('loadingTexts').style.display = 'block';
+                    document.getElementById('textsContainer').style.display = 'none';
+                    document.getElementById('loadingTexts').innerHTML = '<i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i><p>Loading texts...</p>';
+                    fetchTexts();
+                } else if (selectedOption === 'speak') {
+                    document.getElementById('speakTopicSection').style.display = 'block';
+                    document.getElementById('submitSection').style.display = 'block';
+                }
+            });
+        });
+
+        // Submit button handler
+        document.getElementById('submitBtn').addEventListener('click', async function() {
+            // Get variant selection
+            const variantRadios = document.querySelectorAll('input[name="ibanag_variant"]');
+            let variantSelected = false;
+            variantRadios.forEach(radio => {
+                if (radio.checked) {
+                    variantSelected = true;
+                    selectedVariant = radio.value;
+                }
+            });
+
+            if (!variantSelected) {
+                alert('Please select an Ibanag variant.');
+                return;
+            }
+
+            // Get recording option
+            const optionRadios = document.querySelectorAll('input[name="recording_option"]');
+            let optionSelected = false;
+            optionRadios.forEach(radio => {
+                if (radio.checked) {
+                    optionSelected = true;
+                    selectedOption = radio.value;
+                }
+            });
+
+            if (!optionSelected) {
+                alert('Please select a recording option.');
+                return;
+            }
+
+            // Check audio file
+            let audioFile = null;
+            if (selectedOption === 'read') {
+                audioFile = document.getElementById('audio_file_read');
+            } else if (selectedOption === 'speak') {
+                audioFile = document.getElementById('audio_file_speak');
+            }
+
+            if (!audioFile || !audioFile.files || audioFile.files.length === 0) {
+                alert('Please select an audio file to submit.');
+                return;
+            }
+
+            // Get topic if speak option
+            const topic = selectedOption === 'speak' ? document.getElementById('topic').value : '';
+
+            // Submit to Google Sheet
+            try {
+                const params = new URLSearchParams({
+                    action: 'submitRecording',
+                    textIds: selectedTextIds.join(','),
+                    variant: selectedVariant,
+                    recordingType: selectedOption,
+                    topic: topic
+                });
+
+                const response = await fetch(CORS_PROXY + encodeURIComponent(`${SCRIPT_URL}?${params.toString()}`), {
+                    method: 'GET'
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert('Thank you! Your recording has been submitted.');
+                    // Reset form
+                    document.getElementById('audio_file_read').value = '';
+                    document.getElementById('audio_file_speak').value = '';
+                    document.getElementById('topic').value = '';
+                    selectedTextIds = [];
+                } else {
+                    alert('Error submitting recording. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error submitting:', error);
+                alert('Error submitting recording. Please try again.');
+            }
+        });
+    </script>
+</body>
+</html>
