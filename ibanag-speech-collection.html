@@ -104,7 +104,7 @@
                         <!-- Read Ibanag Section -->
                         <div class="form-container" id="readIbanagSection" style="background-color: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; display: none;">
                             <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Step 3: Read Ibanag Text</h3>
-                            <p style="margin-bottom: 1rem; color: #666;">Please read the following 10 lines in Ibanag and record your voice. Then check which sentences you were able to record and upload your audio file:</p>
+                            <p style="margin-bottom: 1rem; color: #666;">Please read the following 10 lines in Ibanag and record your voice. Then check which sentences you were able to record:</p>
 
                             <div id="loadingTexts" style="text-align: center; padding: 2rem; color: #666;">
                                 <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
@@ -117,23 +117,35 @@
                             </div>
 
                             <div style="margin-bottom: 1rem;">
-                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Upload your audio file:</label>
-                                <input type="file" id="audio_file_read" accept="audio/*" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                                <p style="margin-bottom: 0.5rem; color: #666; font-size: 0.9rem;">
+                                    <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
+                                    Click the button below to open a Google Form in a new tab where you can upload your audio file.
+                                </p>
+                                <button type="button" id="uploadBtn" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
+                                    <i class="fas fa-upload" style="margin-right: 0.5rem;"></i>
+                                    Upload Audio File via Google Form
+                                </button>
                             </div>
                         </div>
 
                         <!-- Speak Random Topic Section -->
                         <div class="form-container" id="speakTopicSection" style="background-color: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; display: none;">
                             <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Step 3: Speak About a Random Topic</h3>
-                            <p style="margin-bottom: 1rem; color: #666;">Please record yourself speaking in Ibanag about any topic of your choice (1-3 minutes recommended) and upload your audio file:</p>
+                            <p style="margin-bottom: 1rem; color: #666;">Please record yourself speaking in Ibanag about any topic of your choice (1-3 minutes recommended):</p>
 
                             <div style="margin-bottom: 1rem;">
                                 <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Topic (optional):</label>
                                 <input type="text" id="topic" placeholder="What are you speaking about?" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
                             </div>
                             <div style="margin-bottom: 1rem;">
-                                <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Upload your audio file:</label>
-                                <input type="file" id="audio_file_speak" accept="audio/*" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
+                                <p style="margin-bottom: 0.5rem; color: #666; font-size: 0.9rem;">
+                                    <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
+                                    Click the button below to open a Google Form in a new tab where you can upload your audio file.
+                                </p>
+                                <button type="button" id="uploadBtnSpeak" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
+                                    <i class="fas fa-upload" style="margin-right: 0.5rem;"></i>
+                                    Upload Audio File via Google Form
+                                </button>
                             </div>
                         </div>
 
@@ -180,6 +192,7 @@
 
         // Google Apps Script URL
         const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyipj0G1RZps203Hky5VAC2bIetPWbHUFpEbj4xxFOCQjOgTX__PoNfCRdv9iDoU834/exec';
+        const GOOGLE_FORM_URL = 'https://forms.gle/D8HUv9rpm7r7HAAbA';
 
         // Form logic
         let selectedVariant = '';
@@ -253,6 +266,15 @@
             });
         });
 
+        // Upload button handlers
+        document.getElementById('uploadBtn').addEventListener('click', function() {
+            window.open(GOOGLE_FORM_URL, '_blank');
+        });
+
+        document.getElementById('uploadBtnSpeak').addEventListener('click', function() {
+            window.open(GOOGLE_FORM_URL, '_blank');
+        });
+
         // Submit button handler
         document.getElementById('submitBtn').addEventListener('click', async function() {
             // Get variant selection
@@ -285,19 +307,6 @@
                 return;
             }
 
-            // Check audio file
-            let audioFile = null;
-            if (selectedOption === 'read') {
-                audioFile = document.getElementById('audio_file_read');
-            } else if (selectedOption === 'speak') {
-                audioFile = document.getElementById('audio_file_speak');
-            }
-
-            if (!audioFile || !audioFile.files || audioFile.files.length === 0) {
-                alert('Please select an audio file to submit.');
-                return;
-            }
-
             // Get selected text IDs if read option
             selectedTextIds = [];
             if (selectedOption === 'read') {
@@ -311,8 +320,6 @@
 
             // Get topic if speak option
             const topic = selectedOption === 'speak' ? document.getElementById('topic').value : '';
-
-            alert('Thank you! Please email your audio file to lmarcos@torontomu.ca with the following details:\n\nVariant: ' + selectedVariant + '\nRecording Type: ' + selectedOption + '\nTopic: ' + topic + '\nSentences: ' + selectedTextIds.join(', '));
 
             // Update Google Sheet with selected sentences
             try {
@@ -331,16 +338,18 @@
                 const result = await response.json();
 
                 if (result.success) {
+                    alert('Thank you! Your submission has been recorded.');
                     // Reset form
-                    document.getElementById('audio_file_read').value = '';
-                    document.getElementById('audio_file_speak').value = '';
                     document.getElementById('topic').value = '';
                     selectedTextIds = [];
                     // Uncheck all checkboxes
                     document.querySelectorAll('#textsList input[type="checkbox"]').forEach(cb => cb.checked = false);
+                } else {
+                    alert('Error submitting. Please try again.');
                 }
             } catch (error) {
                 console.error('Error updating sheet:', error);
+                alert('Error submitting. Please try again.');
             }
         });
     </script>
