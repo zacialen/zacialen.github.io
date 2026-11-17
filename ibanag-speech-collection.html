@@ -104,7 +104,7 @@
                         <!-- Read Ibanag Section -->
                         <div class="form-container" id="readIbanagSection" style="background-color: #f9f9f9; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; display: none;">
                             <h3 style="margin-bottom: 1rem; font-size: 1.25rem;">Step 3: Read Ibanag Text</h3>
-                            <p style="margin-bottom: 1rem; color: #666;">Please read the following 10 lines in Ibanag and record your voice. Then check which sentences you were able to record:</p>
+                            <p style="margin-bottom: 1rem; color: #666;">Please read the following 10 lines in Ibanag and record your voice:</p>
 
                             <div id="loadingTexts" style="text-align: center; padding: 2rem; color: #666;">
                                 <i class="fas fa-spinner fa-spin" style="font-size: 2rem; margin-bottom: 1rem;"></i>
@@ -112,14 +112,14 @@
                             </div>
 
                             <div id="textsContainer" style="background-color: white; padding: 1.5rem; border-radius: 4px; margin-bottom: 1.5rem; border-left: 4px solid var(--global-accent-color); display: none;">
-                                <div id="textsList" style="margin-left: 1.5rem; line-height: 1.8;">
-                                </div>
+                                <ol id="textsList" style="margin-left: 1.5rem; line-height: 1.8;">
+                                </ol>
                             </div>
 
                             <!-- Recording Section -->
                             <div style="margin-bottom: 1.5rem; padding: 1.5rem; background-color: white; border-radius: 4px; border: 1px solid var(--global-border-color);">
                                 <h4 style="margin-bottom: 1rem; font-size: 1rem;">Record Your Voice</h4>
-                                
+
                                 <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
                                     <button type="button" id="startRecordBtn" style="background-color: #e74c3c; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
                                         <i class="fas fa-microphone" style="margin-right: 0.5rem;"></i>
@@ -137,23 +137,12 @@
                                     <audio id="audioPreview" controls style="width: 100%;"></audio>
                                 </div>
 
-                                <div id="downloadSection" style="display: none;">
-                                    <button type="button" id="downloadBtn" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
-                                        <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
-                                        Download Recording
+                                <div id="submitSectionRead" style="display: none;">
+                                    <button type="button" id="submitRecordingBtn" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
+                                        <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                                        Submit Recording
                                     </button>
                                 </div>
-                            </div>
-
-                            <div style="margin-bottom: 1rem;">
-                                <p style="margin-bottom: 0.5rem; color: #666; font-size: 0.9rem;">
-                                    <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
-                                    After recording, download the file and upload it via the Google Form below.
-                                </p>
-                                <button type="button" id="uploadBtn" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
-                                    <i class="fas fa-upload" style="margin-right: 0.5rem;"></i>
-                                    Upload Audio File via Google Form
-                                </button>
                             </div>
                         </div>
 
@@ -188,23 +177,12 @@
                                     <audio id="audioPreviewSpeak" controls style="width: 100%;"></audio>
                                 </div>
 
-                                <div id="downloadSectionSpeak" style="display: none;">
-                                    <button type="button" id="downloadBtnSpeak" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
-                                        <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
-                                        Download Recording
+                                <div id="submitSectionSpeak" style="display: none;">
+                                    <button type="button" id="submitRecordingBtnSpeak" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
+                                        <i class="fas fa-paper-plane" style="margin-right: 0.5rem;"></i>
+                                        Submit Recording
                                     </button>
                                 </div>
-                            </div>
-
-                            <div style="margin-bottom: 1rem;">
-                                <p style="margin-bottom: 0.5rem; color: #666; font-size: 0.9rem;">
-                                    <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
-                                    After recording, download the file and upload it via the Google Form below.
-                                </p>
-                                <button type="button" id="uploadBtnSpeak" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
-                                    <i class="fas fa-upload" style="margin-right: 0.5rem;"></i>
-                                    Upload Audio File via Google Form
-                                </button>
                             </div>
                         </div>
 
@@ -213,6 +191,13 @@
                             <button id="submitBtn" style="background-color: var(--global-accent-color); color: white; padding: 0.75rem 2rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer; font-size: 1rem;">
                                 Submit
                             </button>
+                        </div>
+
+                        <!-- Thank You Message -->
+                        <div id="thankYouMessage" style="background-color: #d4edda; padding: 2rem; border-radius: 8px; margin-bottom: 2rem; display: none; border: 1px solid #c3e6cb;">
+                            <h3 style="margin-bottom: 0.5rem; color: #155724;">Thank You!</h3>
+                            <p style="color: #155724;">Your recording has been submitted successfully. We will review it and update the status soon.</p>
+                            <p style="color: #155724; margin-top: 1rem;">If you have any concerns, please email me at <a href="mailto:lmarcos@torontomu.ca" style="color: #155724; text-decoration: underline;">lmarcos@torontomu.ca</a></p>
                         </div>
 
                     </div>
@@ -250,7 +235,7 @@
         updateProgressBar();
 
         // Google Apps Script URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyipj0G1RZps203Hky5VAC2bIetPWbHUFpEbj4xxFOCQjOgTX__PoNfCRdv9iDoU834/exec';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzVKsvjEPJ2YDsPnbnD4NpCD0q3hX3OjAoHbf2_7r-wmzRaWg-tfiqALYWYHjFyicby/exec';
         const GOOGLE_FORM_URL = 'https://forms.gle/D8HUv9rpm7r7HAAbA';
 
         // Form logic
@@ -258,44 +243,34 @@
         let selectedOption = '';
         let selectedTextIds = [];
 
-        // Fetch texts from Google Sheet
-        async function fetchTexts() {
-            try {
-                const response = await fetch(`${SCRIPT_URL}?action=getTexts`);
-                const data = await response.json();
+        // JSONP callback function
+        window.handleScriptResponse = function(data) {
+            if (data.success && data.texts) {
+                const textsList = document.getElementById('textsList');
+                textsList.innerHTML = '';
 
-                if (data.success && data.texts) {
-                    const textsList = document.getElementById('textsList');
-                    textsList.innerHTML = '';
+                data.texts.forEach((item, index) => {
+                    const li = document.createElement('li');
+                    li.textContent = item.text;
+                    textsList.appendChild(li);
+                    selectedTextIds.push(item.id);
+                });
 
-                    data.texts.forEach((item, index) => {
-                        const div = document.createElement('div');
-                        div.style.marginBottom = '0.75rem';
-
-                        const checkbox = document.createElement('input');
-                        checkbox.type = 'checkbox';
-                        checkbox.id = `text_${index}`;
-                        checkbox.value = item.id;
-                        checkbox.style.marginRight = '0.5rem';
-
-                        const label = document.createElement('label');
-                        label.htmlFor = `text_${index}`;
-                        label.textContent = item.text;
-
-                        div.appendChild(checkbox);
-                        div.appendChild(label);
-                        textsList.appendChild(div);
-                    });
-
-                    document.getElementById('loadingTexts').style.display = 'none';
-                    document.getElementById('textsContainer').style.display = 'block';
-                } else {
-                    document.getElementById('loadingTexts').innerHTML = '<p>Error loading texts. Please try again later.</p>';
-                }
-            } catch (error) {
-                console.error('Error fetching texts:', error);
+                document.getElementById('loadingTexts').style.display = 'none';
+                document.getElementById('textsContainer').style.display = 'block';
+            } else {
                 document.getElementById('loadingTexts').innerHTML = '<p>Error loading texts. Please try again later.</p>';
             }
+        };
+
+        // Fetch texts from Google Sheet using JSONP
+        function fetchTexts() {
+            const script = document.createElement('script');
+            script.src = `${SCRIPT_URL}?action=getTexts&callback=handleScriptResponse`;
+            script.onerror = function() {
+                document.getElementById('loadingTexts').innerHTML = '<p>Error loading texts. Please try again later.</p>';
+            };
+            document.head.appendChild(script);
         }
 
         // Show/hide recording sections based on selection
@@ -325,15 +300,6 @@
             });
         });
 
-        // Upload button handlers
-        document.getElementById('uploadBtn').addEventListener('click', function() {
-            window.open(GOOGLE_FORM_URL, '_blank');
-        });
-
-        document.getElementById('uploadBtnSpeak').addEventListener('click', function() {
-            window.open(GOOGLE_FORM_URL, '_blank');
-        });
-
         // Recording functionality
         let mediaRecorder;
         let audioChunks = [];
@@ -357,8 +323,8 @@
 
                     document.getElementById('audioPreview').src = audioUrl;
                     document.getElementById('audioPlayback').style.display = 'block';
-                    document.getElementById('downloadSection').style.display = 'block';
-                    document.getElementById('recordingStatus').textContent = 'Recording completed! You can play back or download your recording.';
+                    document.getElementById('submitSectionRead').style.display = 'block';
+                    document.getElementById('recordingStatus').textContent = 'Recording completed! Listen to your recording and click Submit when ready.';
                 };
 
                 mediaRecorder.start();
@@ -379,15 +345,8 @@
             }
         });
 
-        document.getElementById('downloadBtn').addEventListener('click', function() {
-            if (audioBlob) {
-                const a = document.createElement('a');
-                a.href = audioUrl;
-                a.download = 'ibanag_recording_' + new Date().getTime() + '.webm';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            }
+        document.getElementById('submitRecordingBtn').addEventListener('click', async function() {
+            await submitRecording('read');
         });
 
         // For Speak section
@@ -412,8 +371,8 @@
 
                     document.getElementById('audioPreviewSpeak').src = audioUrlSpeak;
                     document.getElementById('audioPlaybackSpeak').style.display = 'block';
-                    document.getElementById('downloadSectionSpeak').style.display = 'block';
-                    document.getElementById('recordingStatusSpeak').textContent = 'Recording completed! You can play back or download your recording.';
+                    document.getElementById('submitSectionSpeak').style.display = 'block';
+                    document.getElementById('recordingStatusSpeak').textContent = 'Recording completed! Listen to your recording and click Submit when ready.';
                 };
 
                 mediaRecorderSpeak.start();
@@ -434,16 +393,70 @@
             }
         });
 
-        document.getElementById('downloadBtnSpeak').addEventListener('click', function() {
-            if (audioBlobSpeak) {
-                const a = document.createElement('a');
-                a.href = audioUrlSpeak;
-                a.download = 'ibanag_recording_' + new Date().getTime() + '.webm';
-                document.body.appendChild(a);
-                a.click();
-                document.body.removeChild(a);
-            }
+        document.getElementById('submitRecordingBtnSpeak').addEventListener('click', async function() {
+            await submitRecording('speak');
         });
+
+        // Submit recording function
+        async function submitRecording(type) {
+            // Get variant selection
+            const variantRadios = document.querySelectorAll('input[name="ibanag_variant"]');
+            let variantSelected = false;
+            variantRadios.forEach(radio => {
+                if (radio.checked) {
+                    variantSelected = true;
+                    selectedVariant = radio.value;
+                }
+            });
+
+            if (!variantSelected) {
+                alert('Please select an Ibanag variant.');
+                return;
+            }
+
+            // For read option, all text IDs are already in selectedTextIds
+            // For speak option, text IDs will be empty (no specific sentences)
+            if (type === 'speak') {
+                selectedTextIds = [];
+            }
+
+            // Get topic if speak option
+            const topic = type === 'speak' ? document.getElementById('topic').value : '';
+
+            // Update Google Sheet with selected sentences
+            try {
+                const params = new URLSearchParams({
+                    action: 'submitRecording',
+                    textIds: selectedTextIds.join(','),
+                    variant: selectedVariant,
+                    recordingType: type,
+                    topic: topic
+                });
+
+                const response = await fetch(`${SCRIPT_URL}?${params.toString()}`, {
+                    method: 'GET'
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    // Hide form sections and show thank you message
+                    document.getElementById('readIbanagSection').style.display = 'none';
+                    document.getElementById('speakTopicSection').style.display = 'none';
+                    document.getElementById('submitSection').style.display = 'none';
+                    document.getElementById('thankYouMessage').style.display = 'block';
+
+                    // Reset form
+                    document.getElementById('topic').value = '';
+                    selectedTextIds = [];
+                } else {
+                    alert('Error submitting. Please try again.');
+                }
+            } catch (error) {
+                console.error('Error updating sheet:', error);
+                alert('Error submitting. Please try again.');
+            }
+        }
 
         // Submit button handler
         document.getElementById('submitBtn').addEventListener('click', async function() {
