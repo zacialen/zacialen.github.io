@@ -116,10 +116,39 @@
                                 </div>
                             </div>
 
+                            <!-- Recording Section -->
+                            <div style="margin-bottom: 1.5rem; padding: 1.5rem; background-color: white; border-radius: 4px; border: 1px solid var(--global-border-color);">
+                                <h4 style="margin-bottom: 1rem; font-size: 1rem;">Record Your Voice</h4>
+                                
+                                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                                    <button type="button" id="startRecordBtn" style="background-color: #e74c3c; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
+                                        <i class="fas fa-microphone" style="margin-right: 0.5rem;"></i>
+                                        Start Recording
+                                    </button>
+                                    <button type="button" id="stopRecordBtn" style="background-color: #95a5a6; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;" disabled>
+                                        <i class="fas fa-stop" style="margin-right: 0.5rem;"></i>
+                                        Stop Recording
+                                    </button>
+                                </div>
+
+                                <div id="recordingStatus" style="margin-bottom: 1rem; color: #666; font-size: 0.9rem;"></div>
+
+                                <div id="audioPlayback" style="display: none; margin-bottom: 1rem;">
+                                    <audio id="audioPreview" controls style="width: 100%;"></audio>
+                                </div>
+
+                                <div id="downloadSection" style="display: none;">
+                                    <button type="button" id="downloadBtn" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
+                                        <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
+                                        Download Recording
+                                    </button>
+                                </div>
+                            </div>
+
                             <div style="margin-bottom: 1rem;">
                                 <p style="margin-bottom: 0.5rem; color: #666; font-size: 0.9rem;">
                                     <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
-                                    Click the button below to open a Google Form in a new tab where you can upload your audio file.
+                                    After recording, download the file and upload it via the Google Form below.
                                 </p>
                                 <button type="button" id="uploadBtn" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
                                     <i class="fas fa-upload" style="margin-right: 0.5rem;"></i>
@@ -137,10 +166,40 @@
                                 <label style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Topic (optional):</label>
                                 <input type="text" id="topic" placeholder="What are you speaking about?" style="width: 100%; padding: 0.5rem; border: 1px solid #ddd; border-radius: 4px;">
                             </div>
+
+                            <!-- Recording Section -->
+                            <div style="margin-bottom: 1.5rem; padding: 1.5rem; background-color: white; border-radius: 4px; border: 1px solid var(--global-border-color);">
+                                <h4 style="margin-bottom: 1rem; font-size: 1rem;">Record Your Voice</h4>
+
+                                <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+                                    <button type="button" id="startRecordBtnSpeak" style="background-color: #e74c3c; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
+                                        <i class="fas fa-microphone" style="margin-right: 0.5rem;"></i>
+                                        Start Recording
+                                    </button>
+                                    <button type="button" id="stopRecordBtnSpeak" style="background-color: #95a5a6; color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;" disabled>
+                                        <i class="fas fa-stop" style="margin-right: 0.5rem;"></i>
+                                        Stop Recording
+                                    </button>
+                                </div>
+
+                                <div id="recordingStatusSpeak" style="margin-bottom: 1rem; color: #666; font-size: 0.9rem;"></div>
+
+                                <div id="audioPlaybackSpeak" style="display: none; margin-bottom: 1rem;">
+                                    <audio id="audioPreviewSpeak" controls style="width: 100%;"></audio>
+                                </div>
+
+                                <div id="downloadSectionSpeak" style="display: none;">
+                                    <button type="button" id="downloadBtnSpeak" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
+                                        <i class="fas fa-download" style="margin-right: 0.5rem;"></i>
+                                        Download Recording
+                                    </button>
+                                </div>
+                            </div>
+
                             <div style="margin-bottom: 1rem;">
                                 <p style="margin-bottom: 0.5rem; color: #666; font-size: 0.9rem;">
                                     <i class="fas fa-info-circle" style="margin-right: 0.5rem;"></i>
-                                    Click the button below to open a Google Form in a new tab where you can upload your audio file.
+                                    After recording, download the file and upload it via the Google Form below.
                                 </p>
                                 <button type="button" id="uploadBtnSpeak" style="background-color: var(--global-accent-color); color: white; padding: 0.5rem 1.5rem; border: none; border-radius: 4px; font-weight: 500; cursor: pointer;">
                                     <i class="fas fa-upload" style="margin-right: 0.5rem;"></i>
@@ -273,6 +332,117 @@
 
         document.getElementById('uploadBtnSpeak').addEventListener('click', function() {
             window.open(GOOGLE_FORM_URL, '_blank');
+        });
+
+        // Recording functionality
+        let mediaRecorder;
+        let audioChunks = [];
+        let audioBlob;
+        let audioUrl;
+
+        // For Read section
+        document.getElementById('startRecordBtn').addEventListener('click', async function() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorder = new MediaRecorder(stream);
+                audioChunks = [];
+
+                mediaRecorder.ondataavailable = function(event) {
+                    audioChunks.push(event.data);
+                };
+
+                mediaRecorder.onstop = function() {
+                    audioBlob = new Blob(audioChunks, { type: 'audio/webm' });
+                    audioUrl = URL.createObjectURL(audioBlob);
+
+                    document.getElementById('audioPreview').src = audioUrl;
+                    document.getElementById('audioPlayback').style.display = 'block';
+                    document.getElementById('downloadSection').style.display = 'block';
+                    document.getElementById('recordingStatus').textContent = 'Recording completed! You can play back or download your recording.';
+                };
+
+                mediaRecorder.start();
+                document.getElementById('startRecordBtn').disabled = true;
+                document.getElementById('stopRecordBtn').disabled = false;
+                document.getElementById('recordingStatus').textContent = 'Recording... Click Stop when finished.';
+            } catch (error) {
+                console.error('Error accessing microphone:', error);
+                document.getElementById('recordingStatus').textContent = 'Error: Could not access microphone. Please allow microphone access and try again.';
+            }
+        });
+
+        document.getElementById('stopRecordBtn').addEventListener('click', function() {
+            if (mediaRecorder && mediaRecorder.state !== 'inactive') {
+                mediaRecorder.stop();
+                document.getElementById('startRecordBtn').disabled = false;
+                document.getElementById('stopRecordBtn').disabled = true;
+            }
+        });
+
+        document.getElementById('downloadBtn').addEventListener('click', function() {
+            if (audioBlob) {
+                const a = document.createElement('a');
+                a.href = audioUrl;
+                a.download = 'ibanag_recording_' + new Date().getTime() + '.webm';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
+        });
+
+        // For Speak section
+        let mediaRecorderSpeak;
+        let audioChunksSpeak = [];
+        let audioBlobSpeak;
+        let audioUrlSpeak;
+
+        document.getElementById('startRecordBtnSpeak').addEventListener('click', async function() {
+            try {
+                const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                mediaRecorderSpeak = new MediaRecorder(stream);
+                audioChunksSpeak = [];
+
+                mediaRecorderSpeak.ondataavailable = function(event) {
+                    audioChunksSpeak.push(event.data);
+                };
+
+                mediaRecorderSpeak.onstop = function() {
+                    audioBlobSpeak = new Blob(audioChunksSpeak, { type: 'audio/webm' });
+                    audioUrlSpeak = URL.createObjectURL(audioBlobSpeak);
+
+                    document.getElementById('audioPreviewSpeak').src = audioUrlSpeak;
+                    document.getElementById('audioPlaybackSpeak').style.display = 'block';
+                    document.getElementById('downloadSectionSpeak').style.display = 'block';
+                    document.getElementById('recordingStatusSpeak').textContent = 'Recording completed! You can play back or download your recording.';
+                };
+
+                mediaRecorderSpeak.start();
+                document.getElementById('startRecordBtnSpeak').disabled = true;
+                document.getElementById('stopRecordBtnSpeak').disabled = false;
+                document.getElementById('recordingStatusSpeak').textContent = 'Recording... Click Stop when finished.';
+            } catch (error) {
+                console.error('Error accessing microphone:', error);
+                document.getElementById('recordingStatusSpeak').textContent = 'Error: Could not access microphone. Please allow microphone access and try again.';
+            }
+        });
+
+        document.getElementById('stopRecordBtnSpeak').addEventListener('click', function() {
+            if (mediaRecorderSpeak && mediaRecorderSpeak.state !== 'inactive') {
+                mediaRecorderSpeak.stop();
+                document.getElementById('startRecordBtnSpeak').disabled = false;
+                document.getElementById('stopRecordBtnSpeak').disabled = true;
+            }
+        });
+
+        document.getElementById('downloadBtnSpeak').addEventListener('click', function() {
+            if (audioBlobSpeak) {
+                const a = document.createElement('a');
+                a.href = audioUrlSpeak;
+                a.download = 'ibanag_recording_' + new Date().getTime() + '.webm';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            }
         });
 
         // Submit button handler
