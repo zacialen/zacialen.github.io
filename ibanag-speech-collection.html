@@ -235,8 +235,7 @@
         updateProgressBar();
 
         // Google Apps Script URL
-        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzVKsvjEPJ2YDsPnbnD4NpCD0q3hX3OjAoHbf2_7r-wmzRaWg-tfiqALYWYHjFyicby/exec';
-        const GOOGLE_FORM_URL = 'https://forms.gle/D8HUv9rpm7r7HAAbA';
+        const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxT_VJL3AccpTBwbp1t3svtUnXfkEsxvcpfAPoADxuRtg8SDfQmUd410lg7Ae3AHify/exec';
 
         // Form logic
         let selectedVariant = '';
@@ -323,8 +322,9 @@
 
                     document.getElementById('audioPreview').src = audioUrl;
                     document.getElementById('audioPlayback').style.display = 'block';
+                    document.getElementById('uploadSectionRead').style.display = 'block';
                     document.getElementById('submitSectionRead').style.display = 'block';
-                    document.getElementById('recordingStatus').textContent = 'Recording completed! Listen to your recording and click Submit when ready.';
+                    document.getElementById('recordingStatus').textContent = 'Recording completed! Upload to Google Drive, then click Submit when ready.';
                 };
 
                 mediaRecorder.start();
@@ -371,8 +371,9 @@
 
                     document.getElementById('audioPreviewSpeak').src = audioUrlSpeak;
                     document.getElementById('audioPlaybackSpeak').style.display = 'block';
+                    document.getElementById('uploadSectionSpeak').style.display = 'block';
                     document.getElementById('submitSectionSpeak').style.display = 'block';
-                    document.getElementById('recordingStatusSpeak').textContent = 'Recording completed! Listen to your recording and click Submit when ready.';
+                    document.getElementById('recordingStatusSpeak').textContent = 'Recording completed! Upload to Google Drive, then click Submit when ready.';
                 };
 
                 mediaRecorderSpeak.start();
@@ -414,6 +415,13 @@
                 return;
             }
 
+            // Get audio blob
+            let currentBlob = type === 'read' ? audioBlob : audioBlobSpeak;
+            if (!currentBlob) {
+                alert('Please record your voice first.');
+                return;
+            }
+
             // For read option, all text IDs are already in selectedTextIds
             // For speak option, text IDs will be empty (no specific sentences)
             if (type === 'speak') {
@@ -423,18 +431,19 @@
             // Get topic if speak option
             const topic = type === 'speak' ? document.getElementById('topic').value : '';
 
-            // Update Google Sheet with selected sentences
+            // Upload to Google Drive via Apps Script
             try {
-                const params = new URLSearchParams({
-                    action: 'submitRecording',
-                    textIds: selectedTextIds.join(','),
-                    variant: selectedVariant,
-                    recordingType: type,
-                    topic: topic
-                });
+                const formData = new FormData();
+                formData.append('action', 'submitRecordingWithFile');
+                formData.append('textIds', selectedTextIds.join(','));
+                formData.append('variant', selectedVariant);
+                formData.append('recordingType', type);
+                formData.append('topic', topic);
+                formData.append('file', currentBlob, 'recording.webm');
 
-                const response = await fetch(`${SCRIPT_URL}?${params.toString()}`, {
-                    method: 'GET'
+                const response = await fetch(SCRIPT_URL, {
+                    method: 'POST',
+                    body: formData
                 });
 
                 const result = await response.json();
@@ -453,7 +462,7 @@
                     alert('Error submitting. Please try again.');
                 }
             } catch (error) {
-                console.error('Error updating sheet:', error);
+                console.error('Error uploading:', error);
                 alert('Error submitting. Please try again.');
             }
         }

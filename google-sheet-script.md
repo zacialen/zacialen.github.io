@@ -118,27 +118,32 @@ function submitRecording(e) {
     const recordingType = e.parameter.recordingType;
     const topic = e.parameter.topic || '';
 
-    Logger.log('Submitting recording. Text IDs: ' + textIds);
+    Logger.log('Submitting recording. Text IDs: ' + textIds + ', Type: ' + recordingType);
 
     const currentDate = new Date();
     const formattedDate = Utilities.formatDate(currentDate, Session.getScriptTimeZone(), "yyyy-MM-dd HH:mm:ss");
 
-    // Update main sheet: mark texts as "Recorded" and add date stamp
-    const textsSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(TEXTS_SHEET_NAME);
-    const ids = textIds.split(',');
+    // Only update main sheet if recording type is "read" (not "speak")
+    if (recordingType === 'read' && textIds) {
+      const textsSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(TEXTS_SHEET_NAME);
+      const ids = textIds.split(',');
 
-    ids.forEach(id => {
-      // Find the row by ID (search column A)
-      const data = textsSheet.getDataRange().getValues();
-      for (let i = 1; i < data.length; i++) { // Skip header
-        if (data[i][0] == id) { // Column A (ID)
-          textsSheet.getRange(i + 1, 3).setValue('Recorded'); // Update status column (C)
-          textsSheet.getRange(i + 1, 4).setValue(formattedDate); // Update date column (D)
-          Logger.log('Updated row ' + (i + 1) + ' to Recorded');
-          break;
+      ids.forEach(id => {
+        // Find the row by ID (search column A)
+        const data = textsSheet.getDataRange().getValues();
+        for (let i = 1; i < data.length; i++) { // Skip header
+          // Convert both to string for comparison
+          const sheetId = String(data[i][0]);
+          const searchId = String(id);
+          if (sheetId === searchId) { // Column A (ID)
+            textsSheet.getRange(i + 1, 3).setValue('Recorded'); // Update status column (C)
+            textsSheet.getRange(i + 1, 4).setValue(formattedDate); // Update date column (D)
+            Logger.log('Updated row ' + (i + 1) + ' (ID: ' + searchId + ') to Recorded');
+            break;
+          }
         }
-      }
-    });
+      });
+    }
 
     // Log submission to Responses sheet
     logToResponsesSheet(textIds, variant, recordingType, topic, formattedDate);
@@ -156,7 +161,88 @@ function submitRecording(e) {
   }
 }
 
-function logToResponsesSheet(textIds, variant, recordingType, topic, timestamp) {
+// Handle POST requests with file upload
+function doPost(e) {
+  try {
+    const action = e.parameter.action;
+    Logger.log('POST request. Action: ' + action);
+
+    if (action === 'submitRecordingWithFile') {
+      return submitRecordingWithFile(e);
+    }
+
+    return ContentService.createTextOutput(JSON.stringify({
+      success: false,
+      error: 'Invalid action'
+    })).setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    Logger.log('Error in doPost: ' + error.toString());
+    return ContentService.createTextOutput(JSON.stringify({
+      success: false,
+      error: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function submitRecordingWithFile(e) {
+  try {
+    const textIds = e.parameter.textIds;
+    const variant = e.parameter.variant;
+    const recordingType = e.parameter.recordingType;
+    const topic = e.parameter.topic || '';
+
+    Logger.log('Submitting with file. Text IDs: ' + textIds + ', Type: ' + recordingType);
+
+    const currentDate = new Date();
+    const formattedDate = Utilities.formatDate(currentDate, Session.getScriptTimeZone(), "yyyy-MM-dd HH:mm:ss");
+
+    // Save file to Google Drive
+    const blob = e.postData.blob;
+    const fileName = 'ibanag_recording_' + formattedDate.replace(/[:\s]/g, '_') + '.webm';
+    const folder = DriveApp.getFolderById(e.parameter.folderId || 'root');
+    const file = folder.createFile(blob).setName(fileName);
+    const fileUrl = file.getUrl();
+
+    Logger.log('File saved to Drive: ' + fileName);
+
+    // Only update main sheet if recording type is "read" (not "speak")
+    if (recordingType === 'read' && textIds) {
+      const textsSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(TEXTS_SHEET_NAME);
+      const ids = textIds.split(',');
+
+      ids.forEach(id => {
+        const data = textsSheet.getDataRange().getValues();
+        for (let i = 1; i < data.length; i++) {
+          const sheetId = String(data[i][0]);
+          const searchId = String(id);
+          if (sheetId === searchId) {
+            textsSheet.getRange(i + 1, 3).setValue('Recorded');
+            textsSheet.getRange(i + 1, 4).setValue(formattedDate);
+            Logger.log('Updated row ' + (i + 1) + ' to Recorded');
+            break;
+          }
+        }
+      });
+    }
+
+    // Log submission to Responses sheet with file URL
+    logToResponsesSheet(textIds, variant, recordingType, topic, formattedDate, fileUrl);
+
+    return ContentService.createTextOutput(JSON.stringify({
+      success: true,
+      message: 'Recording submitted successfully',
+      fileUrl: fileUrl
+    })).setMimeType(ContentService.MimeType.JSON);
+  } catch (error) {
+    Logger.log('Error in submitRecordingWithFile: ' + error.toString());
+    return ContentService.createTextOutput(JSON.stringify({
+      success: false,
+      error: error.toString()
+    })).setMimeType(ContentService.MimeType.JSON);
+  }
+}
+
+function logToResponsesSheet(textIds, variant, recordingType, topic, timestamp, fileUrl) {
   try {
     const responsesSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(RESPONSES_SHEET_NAME);
 
@@ -164,14 +250,14 @@ function logToResponsesSheet(textIds, variant, recordingType, topic, timestamp) 
     if (!responsesSheet) {
       responsesSheet = SpreadsheetApp.getActiveSpreadsheet().insertSheet(RESPONSES_SHEET_NAME);
       // Add headers
-      responsesSheet.appendRow(['Timestamp', 'Variant', 'Recording Type', 'Topic', 'Sentence IDs', 'Number of Sentences']);
+      responsesSheet.appendRow(['Timestamp', 'Variant', 'Recording Type', 'Topic', 'Sentence IDs', 'Number of Sentences', 'File URL']);
     }
 
     // Check if headers exist, add if needed
-    const headers = responsesSheet.getRange(1, 1, 1, 6).getValues()[0];
+    const headers = responsesSheet.getRange(1, 1, 1, 7).getValues()[0];
     if (headers[0] !== 'Timestamp') {
       responsesSheet.clear();
-      responsesSheet.appendRow(['Timestamp', 'Variant', 'Recording Type', 'Topic', 'Sentence IDs', 'Number of Sentences']);
+      responsesSheet.appendRow(['Timestamp', 'Variant', 'Recording Type', 'Topic', 'Sentence IDs', 'Number of Sentences', 'File URL']);
     }
 
     // Log the submission
@@ -181,7 +267,8 @@ function logToResponsesSheet(textIds, variant, recordingType, topic, timestamp) 
       recordingType,
       topic,
       textIds,
-      textIds.split(',').length
+      textIds ? textIds.split(',').length : 0,
+      fileUrl || ''
     ]);
 
     Logger.log('Logged submission to Responses sheet');
